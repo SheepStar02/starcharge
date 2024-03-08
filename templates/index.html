@@ -45,6 +45,7 @@
             <label for="input4">Unit Type</label>
             <div class="form-group">
               <select class="form-control" id="unit-type">
+                <option value="">Select Value</option>
                 <option value="240">Neptune 240kW</option>
                 <option value="480">Neptune 480kW</option>
                 <option value="180">Titan 180kW</option>
@@ -129,10 +130,10 @@
 
     submit.onclick = async function () {
       const body = {
-        casenum: casenum.value,
+        id: casenum.value,
         dtc: dtc.value,
-        stopReason: stopReason.value,
-        unitDetails: unitDetails.value,
+        stop_reason: stopReason.value,
+        unit_details: unitDetails.value,
       };
 
       const res = await fetch("/getCases", {
