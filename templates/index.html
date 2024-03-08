@@ -153,19 +153,27 @@
         });
       }
 
-      let items = "";
-      for (const row of result) {
-        items += "<tr>";
-        for (const col of Object.values(row)) {
-          items += `<td>${col}</td>`;
-        }
-        // Create a button to view details
-        items += `<td><button class="btn btn-success details-button">Details</button></td>`;
-        items += "</tr>";
-      }
+      document.querySelector("table tbody").innerHTML = "";
 
-      // Populate table body with search results
-      document.querySelector("table tbody").innerHTML = items;
+      for (const row of result) {
+        var tableBody = document.querySelector("#results tbody");
+        var newRow = document.createElement("tr");
+        const detailsButton = document.createElement("td");
+
+        // Order of columns
+        var columnsOrder = ["id", "dtc", "stop_reason", "date", "description", "full_description", "unit_details", "firmware_version", "client_name", "severity", "applicability"];
+
+        // Loop through columns and create a cell for each column
+        columnsOrder.forEach(function (column) {
+            var cell = document.createElement("td");
+            cell.textContent = row[column];
+            newRow.appendChild(cell);
+        });
+        detailsButton.innerHTML = '<button class="btn btn-success details-button">Details</button>'
+        newRow.appendChild(detailsButton)
+
+        tableBody.appendChild(newRow);
+      }
 
       // Add event listeners to the newly created buttons
       document.querySelectorAll(".details-button").forEach((button, index) => {
