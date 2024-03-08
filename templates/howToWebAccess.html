@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>EVSE Ethernet Connection</title>
+        <link rel="stylesheet" href="style.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"/>
+    </head>
+    <style>
+        .smaller-image {
+            width: 350px; /* Adjust the width as needed */
+            height: auto; /* This will automatically adjust the height while maintaining aspect ratio */
+        }
+    </style>
+    <body data-bs-theme="dark" class="p-3">
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand">EVSE Ethernet Connection</a>
+                <form class="d-flex" role="search">
+                    <a href="/" class="btn btn-success">Return Home</a>
+                </form>
+            </div>
+        </nav>
+
+        <div class="container mt-3">
+            <h2>Connecting Ethernet to Athena</h2>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Step 1: Gather Necessary Equipment</h3>
+                    <p>Make sure you have the following items:</p>
+                    <ul>
+                        <li>Ethernet cable</li>
+                        <li>Athena Side Panel Key</li>
+                        <li>Power for Computer (optional)</li>
+                        <!-- Add more items if needed -->
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <img src="img/overall.jpg" alt="Location of the Ethernet Connection" class="img-fluid smaller-image">
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Step 2: Locate the Ethernet Coupler</h3>
+                    <p>The coupler is located in the right side panel of the unit.</p>
+                    <ul>
+                        <li>Unlock the panel door using the key</li>
+                        <br>
+                        <li>Inside you will see blue ethernet cables, and in yours, the cable should be connected with a coupler (connecting 2 separate ethernet cables together)</li>
+                        <br>
+                        <li>The red indicator in the image represents where the coupler would be</li>
+                        <ul>
+                            <strong>After you separate the two:</strong>
+                            <li>use the bottom cable (one pointing to the top) and plug it into your computer.</li>
+                        </ul>
+
+                        <!-- Add more items if needed -->
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <img src="img/internal_mapped.png" alt="Location of the Ethernet Connection" class="img-fluid smaller-image">
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Step 3: Computer Configurations & Web Access</h3>
+                    <p>Now we have to set the IP address of the Ethernet Connection on the computer in order to access the web UI</p>
+                    <ul>
+                        <li>Go to
+                            <strong>Settings > Network and Internet Settings > Ethernet</strong>
+                        </li>
+                        <br>
+                        <li>Click on Edit on the IP Address Configuration, and you should see the screen show up in the image.</li>
+                        <br>
+                        <li>Follow the numbered steps in green, and change the values accordingly.</li>
+                        <ul>
+                            <strong>When setting IPV4 address, avoid the following:</strong>
+                            <li>
+                                <i>192.168.88.206</i>
+                            </li>
+                            <li>
+                                <i>192.168.88.1</i>
+                            </li>
+                            <li>
+                                <i>192.168.88.80</i>
+                            </li>
+                        </ul>
+                        <br>
+                        <li>Close Settings, open a browser (Chrome Preferred), and search
+
+                            <a href="http://192.168.88.206" target="_blank">192.168.88.206</a>
+                            in the search bar.
+                        </li>
+                        <br>
+                        <li>
+                            Username
+                            <strong>wbdh</strong>
+                        </li>
+                        Password
+                        <strong>Wbdh26835941.</strong>
+
+                        <!-- Add more items if needed -->
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <img src="img/network_setting.png" alt="Location of the Ethernet Connection" class="img-fluid smaller-image">
+                    </div>
+                    <br>
+                    <div class="row">
+                        <img src="img/IPV4.png" alt="Location of the Ethernet Connection" class="img-fluid smaller-image">
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Step 4: Web Configuration & Log Download</h3>
+                    <p>Once logged in, in Quick Setup, fill out CPID. This should be provided by your OCPP platform. Hit Save.</p>
+                    <ul>
+                        <li>For help with OCPP Setting:</li>
+                        <ul>
+                            <li>URL: This is the URL to connect to the OCPP backend.</li>
+                            <li>SSL: If the OCPP platform requires a network certificate in order to access, then Enable.</li>
+                            <li>Port: This is the port address of the OCPP backend. 443 is secure (wss, https), 80 is unsecure.</li>
+                            <li>Path: This is the path of the OCPP backend. </li>
+                            <li>Authorization Key (Password): This is the password.</li>
+                            <li>Customer Number: Unless special customer, all default units will be 0.</li>
+                        </ul>
+                        <br>
+                        <li>Hit Apply, wait for sucesss message. If pop-up shows "Failed", hit Apply again.</li>
+                        <br>
+                        <li>Follow the numbered steps in green, and change the values accordingly.</li>
+                        <ul>
+                            <strong>When setting IPV4 address, avoid the following:</strong>
+                            <li>
+                                <i>192.168.88.206</i>
+                            </li>
+                            <li>
+                                <i>192.168.88.1</i>
+                            </li>
+                            <li>
+                                <i>192.168.88.80</i>
+                            </li>
+                        </ul>
+                        <br>
+                        <li>Close Settings, open a browser (Chrome Preferred), and search
+
+                            <a href="http://192.168.88.206" target="_blank">192.168.88.206</a>
+                            in the search bar.
+                        </li>
+                        <br>
+                        <li>
+                            Username
+                            <strong>wbdh</strong>
+                        </li>
+                        Password
+                        <strong>Wbdh26835941.</strong>
+
+                        <!-- Add more items if needed -->
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <img src="img/webconfig.png" alt="Location of the Ethernet Connection" class="img-fluid smaller-image">
+                    </div>
+                    <br>
+                    <div class="row">
+                        <img src="img/IPV4.png" alt="Location of the Ethernet Connection" class="img-fluid smaller-image">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Optional: Add footer -->
+        <footer class="footer mt-auto py-3 bg-dark text-white">
+            <div class="container">
+                <span class="text-muted">© 2024 Star Charge Internal CRM</span>
+            </div>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>StarCRM</title>
+        <link rel="stylesheet" href="style.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"/>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    </head>
+    <body data-bs-theme="dark" class="p-3">
+        <nav class="navbar bg-orange">
+            <div class="container-fluid">
+                <a class="navbar-brand">Star Charge Internal CRM</a>
+                <a href="/" class="btn btn-success">Return to Main</a>
+                <form class="d-flex" role="search">
+                    <a href="explanation" class="btn btn-black">Error Explanation</a>
+                    <a href="newCase" class="btn btn-success">Create New Case</a>
+                </form>
+            </div>
+        </nav>
+        <hr>
+        <div class="row">
+            <div class="p-4 col-md-4">
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label for="dtcInput">DTC ERROR</label>
+                        <div>
+                            <input type="text" class="form-control" id="dtcInput"/>
+                        </div>
+                        <div class="row-sm-6">
+                            <button type="button" class="btn btn-success" onclick="searchDtcError('dtcInput', 'dtcOutput')">Search</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <p>DTC Errors are passive errors that can occur at anytime. These errors are categorized into 3 levels based on their significance by impact to ability to charge.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="p-4 col-md-4">
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label for="stopReasonInput">STOP REASON</label>
+                        <div>
+                            <input type="text" class="form-control" id="stopreasonInput"/>
+                        </div>
+                        <div class="row-sm-6">
+                            <button type="button" class="btn btn-success" onclick="searchstopreason('stopreasonInput', 'dtcOutput')">Search</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <p>StopReasons are active errors causing the charge to stop. Most are overlapping with DTC's.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="dtcOutput"></div>
+
+
+        <script>
+            async function fetchData() {
+                try {
+                    const response = await fetch('OUTPUT_DTC.json');
+                    const data = await response.json();
+                    return data;
+                } catch (error) {
+                    console.error('Error fetching data:', error);
+                    return [];
+                }
+            }
+
+            async function searchDtcError(inputId, outputId) {
+                var searchCode = document.getElementById(inputId).value.trim().replace('{', ''); // Remove '{'
+                var outputElement = document.getElementById(outputId);
+
+                // Fetch JSON data
+                const dtcErrors = await fetchData();
+
+                // Find DTC error in the JSON data
+                var dtcError = dtcErrors.find(error => error.code === searchCode);
+
+                // Display DTC error details in a card
+                if (dtcError) {
+                    outputElement.innerHTML = `
+                    <div class="p-3 col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">DTC Error Details</h5>
+                        <p class="card-text"><strong>Code:</strong> ${
+                        dtcError.code
+                    }</p>
+                        <p class="card-text"><strong>Reason:</strong> ${
+                        dtcError.reason
+                    }</p>
+                        <p class="card-text"><strong>Description:</strong> ${
+                        dtcError.description
+                    }</p>
+                        <p class="card-text"><strong>Translation:</strong> ${
+                        dtcError.translation
+                    }</p>
+                    </div>
+                </div>
+                </div>
+            `;
+                } else {
+                    Swal.fire({icon: "error", title: "Oops...", text: "No Results Found!"});
+                }
+            }
+
+
+            async function fetchDataStopReason() {
+                try {
+                    const response = await fetch('OUTPUT_STOPREASON.json');
+                    const data = await response.json();
+                    return data;
+                } catch (error) {
+                    console.error('Error fetching data:', error);
+                    return [];
+                }
+            }
+
+            async function searchstopreason(inputId, outputId) {
+                var searchCode = document.getElementById(inputId).value.trim();
+                var outputElement = document.getElementById(outputId);
+
+                // Fetch JSON data
+                const dtcErrors = await fetchDataStopReason();
+
+                // Find DTC error in the JSON data
+                var stopError = dtcErrors.find(error => error.code === searchCode);
+
+                // Display DTC error details in a card
+                if (stopError) {
+                    outputElement.innerHTML = `
+                    <div class='row'>
+                        <div class="col-md-4"></div>
+                    <div class="p-3 col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">DTC Error Details</h5>
+                        <p class="card-text"><strong>Code:</strong> ${
+                            stopError.code
+                    }</p>
+                        <p class="card-text"><strong>Reason:</strong> ${
+                            stopError.reason
+                    }</p>
+                        <p class="card-text"><strong>Description:</strong> ${
+                            stopError.description
+                    }</p>
+                        <p class="card-text"><strong>Translation:</strong> ${
+                            stopError.translation
+                    }</p>
+                    </div>
+                </div>
+                </div>
+                </div>
+            `;
+                } else {
+                    Swal.fire({icon: "error", title: "Oops...", text: "No Results Found!"});
+                }
+            }
+        </script>
+
+    </body>
+</html>
