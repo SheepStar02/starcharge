@@ -1,0 +1,914 @@
+[
+    {
+        "code": "0x100001",
+        "reason": "REASON_HARD_RESET",
+        "description": "Hardware reset",
+        "translation": "\u04f2\ufffd\ufffd\ufffd\ufffd\u03bb \"}"
+    },
+    {
+        "code": "0x100002",
+        "reason": "REASON_POWER_LOSS",
+        "description": "Power loss",
+        "translation": "\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100003",
+        "reason": "REASON_REBOOT",
+        "description": "Reboot",
+        "translation": "\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100004",
+        "reason": "REASON_EMERGENCYSTOP",
+        "description": "Terminal emergency stop is pressed",
+        "translation": "\ufffd\u0576\u02fc\ufffd\u0363\u0363\u05b9 \"}"
+    },
+    {
+        "code": "0x100005",
+        "reason": "REASON_METER_COMERR",
+        "description": "Meter communication fault",
+        "translation": "\ufffd\ufffd\ufffd\u0368\ufffd\u0179\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100006",
+        "reason": "REASON_A7_COMERR",
+        "description": "Communication fault with mainboard",
+        "translation": "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u0368\ufffd\u0179\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100007",
+        "reason": "REASON_CARDREADER_ERR",
+        "description": "Cardreader offline",
+        "translation": "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100008",
+        "reason": "REASON_GROUND_FAILURE",
+        "description": "Ground fault",
+        "translation": "\ufffd\u04f5\u0639\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100009",
+        "reason": "REASON_OVER_TEMP",
+        "description": "Cable connector over-temperature fault",
+        "translation": "\u01f9\ufffd\ufffd\ufffd\u00b9\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x10000a",
+        "reason": "REASON_INSULATION_FAILURE",
+        "description": "Inuslation fault",
+        "translation": "\ufffd\ufffd\u0535\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x10000b",
+        "reason": "REASON_METER_DATA_ERR",
+        "description": "Meter data error",
+        "translation": "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ucce3 \"}"
+    },
+    {
+        "code": "0x10000c",
+        "reason": "REASON_DOOR",
+        "description": "Terminal door open",
+        "translation": "\ufffd\u017f\ufffd\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x10000d",
+        "reason": "REASON_RELAY_ERR",
+        "description": "Relay error",
+        "translation": "\ufffd\u0335\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x10000e",
+        "reason": "REASON_LOCK_FAILURE",
+        "description": "Gun lock control fault",
+        "translation": "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x10000f",
+        "reason": "REASON_INSULATION_ERROR",
+        "description": "Insulation board fault",
+        "translation": "\ufffd\ufffd\u0535\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100010",
+        "reason": "REASON_INSULATION_COMERR",
+        "description": "Insulation board offline",
+        "translation": "\ufffd\ufffd\u0535\ufffd\ufffd\ufffd\ufffd\u0368\ufffd\u0179\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x100011",
+        "reason": "REASON_ESBUTTON_ERR",
+        "description": "Mainboard emergency stop is pressed",
+        "translation": "\ufffd\ufffdA7\ufffd\ufffd\u0363\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100012",
+        "reason": "REASON_SUBBOARD_OFFLINE",
+        "description": "Sub-board offline",
+        "translation": "\ufffd\u05f0\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ucce3\u0363\u05b9 \"}"
+    },
+    {
+        "code": "0x100013",
+        "reason": "REASON_DISCHARGE_OVERTIME",
+        "description": "Discharge over-time",
+        "translation": "\u0439\ufffd\u0173\ufffd\u02b1 \"}"
+    },
+    {
+        "code": "0x100014",
+        "reason": "REASON_FAKEPRECHARGE_OVERTIME",
+        "description": "Precharge over-time",
+        "translation": "\u0524\ufffd\u4cec\u02b1 \"}"
+    },
+    {
+        "code": "0x100015",
+        "reason": "REASON_SURGE",
+        "description": "Terminal input surge protection alarm",
+        "translation": "\ufffd\ufffd\u04ff\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100016",
+        "reason": "REASON_PLCBOARD_OFFLINE",
+        "description": "PLC board offline",
+        "translation": "PLC\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100017",
+        "reason": "REASON_SLANT_WARN",
+        "description": "Impact warning",
+        "translation": "\u05f2\ufffd\ufffd\ufffd\u6faf \"}"
+    },
+    {
+        "code": "0x100018",
+        "reason": "REASON_WATERLEVEL_WARN",
+        "description": "Terminal liquid level alarm",
+        "translation": "\u04ba\u03bb\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100019",
+        "reason": "REASON_SURROUNDING_OVERTEMP",
+        "description": "Air over-temperature alarm",
+        "translation": "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u00b9\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x10001a",
+        "reason": "REASON_ACSURROUNDING_COMERR",
+        "description": "Communication fault with AC-subboard",
+        "translation": "AC\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u07f9\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x10001b",
+        "reason": "REASON_PAUSE",
+        "description": "Pause",
+        "translation": "\ufffd\ufffd\u0363\"}"
+    },
+    {
+        "code": "0x10001c",
+        "reason": "REASON_FUSE_ERR",
+        "description": "Terminal fuse alarm",
+        "translation": "\ufffd\ufffd\ufffd\ufffd\ufffd\u0576\ufffd\ufffd\u06f6\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x10001d",
+        "reason": "REASON_TAILOVER_TEMP",
+        "description": "The end of the liquid cooled gun is too warm",
+        "translation": "\u04ba\ufffd\ufffd\u01f9\u01f9\u03b2\ufffd\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x10001e",
+        "reason": "REASON_FUSE_OPEN",
+        "description": "Open circuit of fuse",
+        "translation": "\ufffd\ufffd\ufffd\ufffd\u06f6\ufffd\ufffd\ufffd\ufffd\ufffd\u00b7\"}"
+    },
+    {
+        "code": "0x10001f",
+        "reason": "REASON_APS_CTRLERR",
+        "description": "Auxiliary power control fault",
+        "translation": "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u0534\ufffd\ufffd\ufffd\u01b9\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x100020",
+        "reason": "REASON_OUTPUTRELAY_CTRLERR",
+        "description": "Output relay control fault",
+        "translation": "\ufffd\ufffd\ufffd\ufffd\u0335\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u01b9\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100021",
+        "reason": "REASON_HUMIDITY_WARN",
+        "description": "High humidity alarm",
+        "translation": "\ufffd\ufffd\u02aa\ufffd\u0238\u6faf\"}"
+    },
+    {
+        "code": "0x100022",
+        "reason": "REASON_RCD_WARN",
+        "description": "RCD warm or fault",
+        "translation": "RCD\ufffd\u6faf \"}"
+    },
+    {
+        "code": "0x100023",
+        "reason": "REASON_BREAKER_OPEN",
+        "description": "Breaker off",
+        "translation": "\ufffd\ufffd\u00b7\ufffd\ufffd\ufffd\u03ff\ufffd\"}"
+    },
+    {
+        "code": "0x100024",
+        "reason": "REASON_GUN_UNAVAILABLE",
+        "description": "Gun unavailable",
+        "translation": "\u01f9\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x100025",
+        "reason": "REASON_TRIAL_OUTTIME",
+        "description": "Expiration of product trial period",
+        "translation": "\ufffd\ufffd\u01b7\ufffd\ufffd\ufffd\ufffd\ufffd\u06bd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100101",
+        "reason": "REASON_EV_DISCONNECTED",
+        "description": "EV disconnected",
+        "translation": "\u01f9\ufffd\ufffd\ufffd\u04f6\u03ff\ufffd \"}"
+    },
+    {
+        "code": "0x100102",
+        "reason": "REASON_EV_ERR",
+        "description": "EV communication fault",
+        "translation": "\ufffd\ufffd\ufffd\ufffd\u0368\ufffd\u0179\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100103",
+        "reason": "REASON_EV_PARAGET_OVERTIME",
+        "description": "EV parameters get overtime",
+        "translation": "\ufffd\ufffd\u0221\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u03e2\ufffd\ufffd\u02b1 \"}"
+    },
+    {
+        "code": "0x100104",
+        "reason": "REASON_EVSE_PARARES_OVERTIME",
+        "description": "PLC communication timeout",
+        "translation": "\u05ee\ufffd\ufffd\ufffd\ufffd\u03e2PLC\ufffd\u0638\ufffd\ufffd\ufffd\u02b1\"}"
+    },
+    {
+        "code": "0x100105",
+        "reason": "REASON_PARAMETERS_NOT_MATCHING",
+        "description": "Charge parameters dismatch",
+        "translation": "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u01a5\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100106",
+        "reason": "REASON_EV_NOT_READYTOCHARGE",
+        "description": "EVCC is not ready",
+        "translation": "\ufffd\ufffd\ufffd\ufffd\u03b4\u05fc\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100107",
+        "reason": "REASON_CHARGINGPOWER_IS_REACHED",
+        "description": "Stop when the set charging power is reached",
+        "translation": "\ufffd\ufd7d\ufffd\ufffd\ufffd\u00f3\ufffd\ufffd\ufffd\ufffd\ufffd\u0363\u05b9 \"}"
+    },
+    {
+        "code": "0x100108",
+        "reason": "REASON_CHARGINGTIME_IS_REACHED",
+        "description": "Stop when the set charging time is reached",
+        "translation": "\ufffd\ufd7d\ufffd\ufffd\ufffd\u00f3\ufffd\ufffd\u02b1\ufffd\ufffd\u0363\u05b9 \"}"
+    },
+    {
+        "code": "0x100201",
+        "reason": "REASON_LOCAL",
+        "description": "Local",
+        "translation": "\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100202",
+        "reason": "REASON_OTHER",
+        "description": "Other reasons",
+        "translation": "\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100203",
+        "reason": "REASON_REMOTE",
+        "description": "Remotely stop",
+        "translation": "\u0536\ufffd\ufffd\u0363\u05b9 \"}"
+    },
+    {
+        "code": "0x100204",
+        "reason": "REASON_SOFT_RESET",
+        "description": "Soft reset",
+        "translation": "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u03bb \"}"
+    },
+    {
+        "code": "0x100205",
+        "reason": "REASON_UNLOCKCOMMAND",
+        "description": "Unlock command",
+        "translation": "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100206",
+        "reason": "REASON_DEAUTHORIZED",
+        "description": "Deauthorized",
+        "translation": "\ufffd\ufffd\u05a4\ufffd\ufffd\u0368\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100207",
+        "reason": "REASON_OVER_VOL",
+        "description": "Output over-voltage fault",
+        "translation": "\ufffd\ufffd\u0479\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100208",
+        "reason": "REASON_UNDER_VOL",
+        "description": "Output under-voltage fault",
+        "translation": "\u01f7\u0479\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100209",
+        "reason": "REASON_OVER_CUR",
+        "description": "Output over-current fault",
+        "translation": "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x10020a",
+        "reason": "REASON_LOCAL_CONFLICT",
+        "description": "Local list conflict",
+        "translation": "\ufffd\u0431\ufffd\ufffd\ufffd\u037b \"}"
+    },
+    {
+        "code": "0x10020b",
+        "reason": "REASON_WEBSCREEN_STOP",
+        "description": "Web or Screen stop",
+        "translation": "web\ufffd\ufffd\u013b\u0363\u05b9 \"}"
+    },
+    {
+        "code": "0x10020c",
+        "reason": "REASON_CARD_STOP",
+        "description": "Card stop",
+        "translation": "\u02e2\ufffd\ufffd\u0363\u05b9 \"}"
+    },
+    {
+        "code": "0x10020d",
+        "reason": "REASON_EVSE_PARAGET_OVERTIME",
+        "description": "EVSE parameters get overtime",
+        "translation": "\ufffd\ufffd\u0221\u05ee\ufffd\ufffd\ufffd\ufffd\u03e2\ufffd\ufffd\u02b1 \"}"
+    },
+    {
+        "code": "0x10020e",
+        "reason": "REASON_PILOT_RECONNECT",
+        "description": "Pilot need to be reconnected",
+        "translation": "\ufffd\ufffd\ufffd\u00b2\ufffd\u01f9 \"}"
+    },
+    {
+        "code": "0x10020f",
+        "reason": "REASON_PWRUNIT_OFFLINE",
+        "description": "Power cabinet offline",
+        "translation": "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x200001",
+        "reason": "REASON_PWRUINT_EMERGENCY_STOP",
+        "description": "Power cabinet emergency stop is pressed",
+        "translation": "\ufffd\ufffd\ufffd\u02b9\ufffd\u0363\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x200002",
+        "reason": "REASON_PWRUINT_WATERLEVEL_WARN",
+        "description": "Power cabinet liquid level alarm",
+        "translation": "\ufffd\ufffd\ufffd\u02b9\ufffd\u04ba\u03bb\ufffd\u6faf \"}"
+    },
+    {
+        "code": "0x200003",
+        "reason": "REASON_PWRUINT_DOOR",
+        "description": "Power cabinet door open",
+        "translation": "\ufffd\ufffd\ufffd\u02b9\ufffd\ufffd\u0174\ufffd \"}"
+    },
+    {
+        "code": "0x200004",
+        "reason": "REASON_PWRUINT_BREAKER",
+        "description": "Circuit breaker disconnected",
+        "translation": "\ufffd\ufffd\u00b7\ufffd\ufffd\ufffd\u047f\ufffd \"}"
+    },
+    {
+        "code": "0x200005",
+        "reason": "REASON_PWRUINT_PDUCTRL_ERR",
+        "description": "PDU relay control fault",
+        "translation": "PDU\ufffd\u0335\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u01b9\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x200006",
+        "reason": "REASON_PWRUINT_PDUCOM_ERR",
+        "description": "PDU communication fault",
+        "translation": "PDU\u0368\ufffd\u0179\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x200007",
+        "reason": "REASON_PWRUINT_MODULE_COMERR",
+        "description": "Power module communication fault",
+        "translation": "\ufffd\ufffd\u0534\u0123\ufffd\ufffd\u0368\ufffd\u0179\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x200008",
+        "reason": "REASON_PWRUINT_INPUT_RELAY_ERR",
+        "description": "Input relay control fault",
+        "translation": "\ufffd\ufffd\ufffd\ufffd\u0335\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u01b9\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x200009",
+        "reason": "REASON_PWRUINT_PDUCAL_FAULT",
+        "description": "Power policy fault",
+        "translation": "\ufffd\ufffd\ufffd\u02b7\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x20000a",
+        "reason": "REASON_PWRUINT_PDUSWITCH_OVERTIME",
+        "description": "Power switch overtime fault",
+        "translation": "\ufffd\ufffd\ufffd\ufffd\ufffd\u043b\ufffd\ufffd\ufffd\u02b1\u0363\u05b9 \"}"
+    },
+    {
+        "code": "0x20000b",
+        "reason": "REASON_PWRUINT_SURGE",
+        "description": "Power cabinet input surge protection alarm",
+        "translation": "\ufffd\ufffd\u04ff\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x20000c",
+        "reason": "REASON_PWRUINT_SMOKE",
+        "description": "Power cabinet smoke alarm",
+        "translation": "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x20000d",
+        "reason": "REASON_PWRUINT_PWRERR",
+        "description": "Power control output fault",
+        "translation": "\ufffd\ufffd\ufffd\u02bf\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ucce3 \"}"
+    },
+    {
+        "code": "0x20000e",
+        "reason": "REASON_PWRUINT_OUTSHORT",
+        "description": "Output short circuit",
+        "translation": "\ufffd\ufffd\ufffd\ufffd\ufffd\u00b7 \"}"
+    },
+    {
+        "code": "0x200101",
+        "reason": "REASON_PWRUINT_TERMINALHERAT_OVERTIME",
+        "description": "Terminal heart frame overtime",
+        "translation": "\ufffd\u0576\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u0133\ufffd\u02b1\u0363\u05b9 \"}"
+    },
+    {
+        "code": "0x200102",
+        "reason": "REASON_PWRUINT_TERMINALCHGRES_OVERTIME",
+        "description": "Terminal charging frame overtime",
+        "translation": "\ufffd\u0576\u02f3\ufffd\u7c68\ufffd\u0133\ufffd\u02b1\u0363\u05b9 \"}"
+    },
+    {
+        "code": "0x200201",
+        "reason": "REASON_PWRUINT_MODULE_HIGHTEMP",
+        "description": "Power module over-temperature",
+        "translation": "\ufffd\ufffd\u0534\u0123\ufffd\ufffd\ufffd\u00b6\u0239\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x200202",
+        "reason": "REASON_PWRUINT_MODULE_INTERNALERR",
+        "description": "Power module fault",
+        "translation": "\ufffd\ufffd\u0534\u0123\ufffd\ufffd\ufffd\u06b2\ufffd\ufffd\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x200203",
+        "reason": "REASON_PWRUINT_MODULE_FANERR",
+        "description": "Power module fan fault",
+        "translation": "\ufffd\ufffd\u0534\u0123\ufffd\ufffd\ufffd\ufffd\u0239\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x200204",
+        "reason": "REASON_PWRUINT_INPUT_UNDERVOL",
+        "description": "Power module input under-voltage fault",
+        "translation": "\ufffd\ufffd\u0534\u0123\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u01f7\u0479 \"}"
+    },
+    {
+        "code": "0x200205",
+        "reason": "REASON_PWRUINT_INPUT_OVERVOL",
+        "description": "Power Module input over-voltage fault",
+        "translation": "\ufffd\ufffd\u0534\u0123\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u0479 \"}"
+    },
+    {
+        "code": "0x200206",
+        "reason": "REASON_PWRUINT_MODULE_PFC_FAULT",
+        "description": "Power module PFC fault",
+        "translation": "\ufffd\ufffd\u0534\u0123\ufffd\ufffdPFC\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x200207",
+        "reason": "REASON_PWRUINT_MODULE_DCDC_FAULT",
+        "description": "Power module DC-DC fault",
+        "translation": "\ufffd\ufffd\u0534\u0123\ufffd\ufffdDCDC\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x200208",
+        "reason": "REASON_PWRUINT_MODULE_OUTPUT_FUSE",
+        "description": "Power module output fuse fault",
+        "translation": "\ufffd\ufffd\u0534\u0123\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u02ff\ufffd\u06f6\ufffd \"}"
+    },
+    {
+        "code": "0x200209",
+        "reason": "REASON_PWRUINT_MODULE_INPUT_FUSE",
+        "description": "Power module input fuse fault",
+        "translation": "\ufffd\ufffd\u0534\u0123\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u02ff\ufffd\u06f6\ufffd \"}"
+    },
+    {
+        "code": "0x20020a",
+        "reason": "REASON_PWRUINT_MODULE_OVERPOWER",
+        "description": "Power module output over-power",
+        "translation": "\ufffd\ufffd\u0534\u0123\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u02b9\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x20020b",
+        "reason": "REASON_PWRUINT_MODULE_OUTPUT_HIGHVOL",
+        "description": "Power module output over-voltage",
+        "translation": "\ufffd\ufffd\u0534\u0123\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u0479 \"}"
+    },
+    {
+        "code": "0x20020c",
+        "reason": "REASON_PWRUINT_MODULE_OUTPUT_UNDERVOL",
+        "description": "Power module output under-voltage",
+        "translation": "\ufffd\ufffd\u0534\u0123\ufffd\ufffd\ufffd\ufffd\ufffd\u01f7\u0479 \"}"
+    },
+    {
+        "code": "0x20020d",
+        "reason": "REASON_PWRUINT_MODULE_HARDWARE_FAULT",
+        "description": "Power module hardware fault",
+        "translation": "\ufffd\ufffd\u0534\u0123\ufffd\ufffd\u04f2\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x20020e",
+        "reason": "REASON_PWRUINT_SLANT_WARN",
+        "description": "The impact failure",
+        "translation": "\ufffd\ufffd\u0431\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x20020f",
+        "reason": "REASON_PWRUINT_FUSING_WARN",
+        "description": "Fusing warning",
+        "translation": "\ufffd\u06f6\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd  \"}"
+    },
+    {
+        "code": "0x300001",
+        "reason": "REASON_HPCCOOLER_FAULT",
+        "description": "HPC cooler fault",
+        "translation": "\u04ba\ufffd\ufffd\ufffd\u8c78\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x300002",
+        "reason": "REASON_HPCCOOLERDOOR_FAULT",
+        "description": "HPC cooler door open",
+        "translation": "\u04ba\ufffd\ufffd\ufffd\ufffd\u017f\ufffd\ufffd\ufffd\ufffd\ufffd  \"}"
+    },
+    {
+        "code": "0x300003",
+        "reason": "REASON_HPCCOOLER_PIPE_JAM_ERR",
+        "description": "HPC-cooler pipe jam",
+        "translation": "\ufffd\u0735\ufffd\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x300004",
+        "reason": "REASON_HPCCOOLER_PUMP_ERR",
+        "description": "HPC-cooler pump failure",
+        "translation": "\u04ba\ufffd\u00f9\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x300005",
+        "reason": "REASON_HPCCOOLER_SHORTAGE_ERR",
+        "description": "HPC-cooler liquid shortage alarm",
+        "translation": "\u0231\u04ba\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x400001",
+        "reason": "REASON_AC_LOCK_CTRL_ERR",
+        "description": "AC electronic lock control is faulty",
+        "translation": "AC\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u01b9\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x400002",
+        "reason": "REASON_LEAKAGE_DETECTION_ERR",
+        "description": "AC leakage detection fault",
+        "translation": "AC\u00a9\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u0363\u05b9\"}"
+    },
+    {
+        "code": "0x800000",
+        "reason": "GBT_STOP_CASE_OK",
+        "description": "default",
+        "translation": "\u012c\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x800001",
+        "reason": "GBT_STOP_CASE_EXTERN",
+        "description": "Externally initiated stop",
+        "translation": "\ufffd\u2cbf\ufffd\ufffd\ufffd\ufffd\u0363\u05b9 \"}"
+    },
+    {
+        "code": "0x800065",
+        "reason": "GBT_STOP_CASE_MORE10V",
+        "description": "External overvoltage",
+        "translation": "\ufffd\u2cbf\ufffd\ufffd\u0479\ufffd\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x800066",
+        "reason": "GBT_STOP_CASE_MISMATCH",
+        "description": "The output capacity does not match",
+        "translation": "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u01a5\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x800067",
+        "reason": "GBT_STOP_CASE_VOLTIME",
+        "description": "Module boost failed. Procedure",
+        "translation": "\u0123\ufffd\ufffd\ufffd\ufffd\u0479\u02a7\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x800068",
+        "reason": "GBT_STOP_CASE_RELAY_ADH",
+        "description": "Main loop relay failure (adhesion)",
+        "translation": "\ufffd\ufffd\ufffd\ufffd\u00b7\ufffd\u0335\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd(\u0573\ufffd\ufffd)\"}"
+    },
+    {
+        "code": "0x800069",
+        "reason": "GBT_STOP_CASE_INSU",
+        "description": "Insulation fault",
+        "translation": "\ufffd\ufffd\u0535\ufffd\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x80006a",
+        "reason": "GBT_STOP_CASE_DISCHARGE",
+        "description": "Bleed failure or timeout",
+        "translation": "\u0439\ufffd\u0179\ufffd\ufffd\ufffd//\ufffd\ufffd\u02b1\"}"
+    },
+    {
+        "code": "0x80006b",
+        "reason": "GBT_STOP_CASE_PREVOL",
+        "description": "Precharge voltage mismatch",
+        "translation": "\u0524\ufffd\ufffd\ufffd\u0479\ufffd\ufffd\u01a5\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x80006c",
+        "reason": "GBT_STOP_CASE_BATVOL",
+        "description": "The output capacity of the charger does not match",
+        "translation": "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u01a5\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x80006d",
+        "reason": "GBT_STOP_CASE_SHORT",
+        "description": "Output short circuit",
+        "translation": "\ufffd\ufffd\ufffd\ufffd\ufffd\u00b7\"}"
+    },
+    {
+        "code": "0x80006e",
+        "reason": "GBT_STOP_CASE_BRM_OVER",
+        "description": "The BRM packet received timed out",
+        "translation": "BRM\ufffd\ufffd\ufffd\u013d\ufffd\ufffd\u0573\ufffd\u02b1\"}"
+    },
+    {
+        "code": "0x80006f",
+        "reason": "GBT_STOP_CASE_BCP_OVER",
+        "description": "The BCP packet received timed out",
+        "translation": "BCP\ufffd\ufffd\ufffd\u013d\ufffd\ufffd\u0573\ufffd\u02b1\"}"
+    },
+    {
+        "code": "0x800070",
+        "reason": "GBT_STOP_CASE_BRO00_OVER",
+        "description": "BRO00 Packet receiving times out",
+        "translation": "BRO00\ufffd\ufffd\ufffd\u013d\ufffd\ufffd\u0573\ufffd\u02b1\"}"
+    },
+    {
+        "code": "0x800071",
+        "reason": "GBT_STOP_CASE_BROAA_OVER",
+        "description": "The BROAA packet received timed out",
+        "translation": "BROAA\ufffd\ufffd\ufffd\u013d\ufffd\ufffd\u0573\ufffd\u02b1\"}"
+    },
+    {
+        "code": "0x800072",
+        "reason": "GBT_STOP_CASE_BRO_ERR",
+        "description": "Vehicle readiness failure (start AA and then start 00)",
+        "translation": "\ufffd\ufffd\ufffd\ufffd\u05fc\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u02a7\ufffd\ufffd(\ufffd\u0237\ufffdAA\ufffd\u0677\ufffd00)\"}"
+    },
+    {
+        "code": "0x800073",
+        "reason": "GBT_STOP_CASE_BEM_CRM00",
+        "description": "The CRM00 timeout terminates in the BEM",
+        "translation": "BEM\ufffd\ufffdCRM00\ufffd\ufffd\u02b1\ufffd\ufffd\u05b9\"}"
+    },
+    {
+        "code": "0x800074",
+        "reason": "GBT_STOP_CASE_BEM_CRMAA",
+        "description": "The CRMAA timeout in the BEM was terminated. Procedure",
+        "translation": "BEM\ufffd\ufffdCRMAA\ufffd\ufffd\u02b1\ufffd\ufffd\u05b9\"}"
+    },
+    {
+        "code": "0x800075",
+        "reason": "GBT_STOP_CASE_BEM_CML",
+        "description": "CML or CTS timeout terminates in BEM",
+        "translation": "BEM\ufffd\ufffdCML//CTS\ufffd\ufffd\u02b1\ufffd\ufffd\u05b9\"}"
+    },
+    {
+        "code": "0x800076",
+        "reason": "GBT_STOP_CASE_BATREV",
+        "description": "Battery polarity reverse connection fault",
+        "translation": "\ufffd\ufffd\u063c\ufffd\ufffd\u0537\ufffd\ufffd\u04f9\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x800077",
+        "reason": "GBT_STOP_CASE_BEM_CRO",
+        "description": "The CRO timeout in the BEM was terminated. Procedure",
+        "translation": "BEM\ufffd\ufffdCRO\ufffd\ufffd\u02b1\ufffd\ufffd\u05b9\"}"
+    },
+    {
+        "code": "0x800078",
+        "reason": "GBT_STOP_CASE_BRO_TIME",
+        "description": "BMS charging preparation timed out",
+        "translation": "BMS\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u05fc\ufffd\ufffd\ufffd\ufffd\u02b1\"}"
+    },
+    {
+        "code": "0x800079",
+        "reason": "GBT_STOP_CASE_CRO_OVER",
+        "description": "Device self-test timeout (60S less than pre-charging voltage during pre-charging)",
+        "translation": "\ufffd\u8c78\ufffd\u053c\uccec\u02b1(\u0524\ufffd\ufffd\ufffd\u02b1\ufffd\ufffd60S\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u0524\ufffd\ufffd\ufffd\u0479)\"}"
+    },
+    {
+        "code": "0x8000c9",
+        "reason": "GBT_STOP_CASE_MAXVOL",
+        "description": "The output voltage exceeds the maximum allowable",
+        "translation": "\ufffd\ufffd\ufffd\ufffd\ufffd\u0479\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x8000ca",
+        "reason": "GBT_STOP_CASE_MAXCUR",
+        "description": "The output current exceeds the maximum allowable",
+        "translation": "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x8000cb",
+        "reason": "GBT_STOP_CASE_VOL_LOW",
+        "description": "Output undervoltage (module output voltage is less than battery voltage)",
+        "translation": "\ufffd\ufffd\ufffd\u01f7\u0479(\u0123\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u0479\u0421\ufffd\u06b5\ufffd\u0635\ufffd\u0479)\"}"
+    },
+    {
+        "code": "0x8000cc",
+        "reason": "GBT_STOP_CASE_CUR_HIGH",
+        "description": "Output overcurrent (module output current is greater than the required current of BCL)",
+        "translation": "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd(\u0123\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffdBCL\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd)\"}"
+    },
+    {
+        "code": "0x8000cd",
+        "reason": "GBT_STOP_CASE_BCL_OVER",
+        "description": "The battery charging request message timed out",
+        "translation": "\ufffd\ufffd\u0633\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd(BCL)\ufffd\ufffd\u02b1\"}"
+    },
+    {
+        "code": "0x8000ce",
+        "reason": "GBT_STOP_CASE_BCS_OVER",
+        "description": "The battery charging requirement message (BCS) times out",
+        "translation": "\ufffd\ufffd\u0633\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd(BCS)\ufffd\ufffd\u02b1\"}"
+    },
+    {
+        "code": "0x8000cf",
+        "reason": "GBT_STOP_CASE_BSM_OVER",
+        "description": "Power battery status information (BSM) timed out",
+        "translation": "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u05f4\u032c\ufffd\ufffd\u03e2(BSM)\ufffd\ufffd\u02b1\"}"
+    },
+    {
+        "code": "0x8000d0",
+        "reason": "GBT_STOP_CASE_PAUSE_OVER",
+        "description": "The BSM message stops charging after 10 minutes",
+        "translation": "BSM\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u0363\ufffd\ufffd\u7cec\ufffd\ufffd10min\u0363\u05b9\"}"
+    },
+    {
+        "code": "0x8000d1",
+        "reason": "GBT_STOP_CASE_BSM_SIGN_VOL_H",
+        "description": "The voltage of the single power battery in the BSM packet is too high. Procedure",
+        "translation": "BSM\ufffd\ufffd\ufffd\ufffd\ufffd\u0435\ufffd\ufffd\u5daf\ufffd\ufffd\ufffd\ufffd\ufffd\u0635\ufffd\u0479\ufffd\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x8000d2",
+        "reason": "GBT_STOP_CASE_BSM_SIGN_VOL_L",
+        "description": "The voltage of the single power battery in the BSM packet is too low. Procedure",
+        "translation": "BSM\ufffd\ufffd\ufffd\ufffd\ufffd\u0435\ufffd\ufffd\u5daf\ufffd\ufffd\ufffd\ufffd\ufffd\u0635\ufffd\u0479\ufffd\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x8000d3",
+        "reason": "GBT_STOP_CASE_BSM_SOC_HIGH",
+        "description": "The soc in the BSM packet is too high. Procedure",
+        "translation": "BSM\ufffd\ufffd\ufffd\ufffd\ufffd\ufffdsoc\ufffd\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x8000d4",
+        "reason": "GBT_STOP_CASE_BSM_SOC_LOW",
+        "description": "The soc in the BSM packet is too low. Procedure",
+        "translation": "BSM\ufffd\ufffd\ufffd\ufffd\ufffd\ufffdsoc\ufffd\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x8000d5",
+        "reason": "GBT_STOP_CASE_BSM_CUR_OVER",
+        "description": "Charging overcurrent in the BSM packet",
+        "translation": "BSM\ufffd\ufffd\ufffd\ufffd\ufffd\u0433\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x8000d6",
+        "reason": "GBT_STOP_CASE_BSM_TEMP_OVER",
+        "description": "The temperature of the power battery in the BSM packet is too high. Procedure",
+        "translation": "BSM\ufffd\ufffd\ufffd\ufffd\ufffd\u0436\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u00b6\u0239\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x8000d7",
+        "reason": "GBT_STOP_CASE_BSM_INSU",
+        "description": "The power battery insulation status in the BSM packet is abnormal. Procedure",
+        "translation": "BSM\ufffd\ufffd\ufffd\ufffd\ufffd\u0436\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u063e\ufffd\u0535\u05f4\u032c\ufffd\ucce3\"}"
+    },
+    {
+        "code": "0x8000d8",
+        "reason": "GBT_STOP_CASE_BSM_CONN",
+        "description": "The connector connection status in the BSM packet is abnormal. Procedure",
+        "translation": "BSM\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u05f4\u032c\ufffd\ucce3\"}"
+    },
+    {
+        "code": "0x8000d9",
+        "reason": "GBT_STOP_CASE_BST_NORMAL",
+        "description": "The BST terminated normally",
+        "translation": "BST\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u05b9\"}"
+    },
+    {
+        "code": "0x8000da",
+        "reason": "GBT_STOP_CASE_BST_INSU",
+        "description": "The BST insulation is faulty",
+        "translation": "BST\ufffd\ufffd\u0535\ufffd\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x8000db",
+        "reason": "GBT_STOP_CASE_BST_CONN_TEMP",
+        "description": "The BST output connector is overheated",
+        "translation": "BST\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x8000dc",
+        "reason": "GBT_STOP_CASE_BST_PART_TEMP",
+        "description": "BSTBMS The output connector of a component is overheated",
+        "translation": "BSTBMS\u052a\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x8000dd",
+        "reason": "GBT_STOP_CASE_BST_CONN",
+        "description": "The BST output connector is faulty",
+        "translation": "BST\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x8000de",
+        "reason": "GBT_STOP_CASE_BST_BAT_TEMP",
+        "description": "The BST battery is overheated",
+        "translation": "BST\ufffd\ufffd\u0639\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x8000df",
+        "reason": "GBT_STOP_CASE_BST_RELAY",
+        "description": "The BST high voltage relay is faulty",
+        "translation": "BST\ufffd\ufffd\u0479\ufffd\u0335\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x8000e0",
+        "reason": "GBT_STOP_CASE_BST_TEST_VOL",
+        "description": "The voltage of the BST detection point is faulty",
+        "translation": "BST\ufffd\ufffd\ufffd\ufffd\ufffd\u0479\ufffd\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x8000e1",
+        "reason": "GBT_STOP_CASE_BST_CUR",
+        "description": "The BST current is too large",
+        "translation": "BST\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x8000e2",
+        "reason": "GBT_STOP_CASE_BST_VOL",
+        "description": "The BST voltage is too high",
+        "translation": "BST\ufffd\ufffd\u0479\ufffd\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x8000e3",
+        "reason": "GBT_STOP_CASE_BST_OTHER",
+        "description": "BST Other",
+        "translation": "BST\ufffd\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x8000e4",
+        "reason": "GBT_STOP_CASE_BEM_CCS",
+        "description": "The CCS timeout in the BEM is terminated. Procedure",
+        "translation": "BEM\ufffd\ufffdCCS\ufffd\ufffd\u02b1\ufffd\ufffd\u05b9\"}"
+    },
+    {
+        "code": "0x8000e5",
+        "reason": "GBT_STOP_CASE_BEM_CST",
+        "description": "The CST timeout in the BEM was terminated. Procedure",
+        "translation": "BEM\ufffd\ufffdCST\ufffd\ufffd\u02b1\ufffd\ufffd\u05b9\"}"
+    },
+    {
+        "code": "0x8000e6",
+        "reason": "GBT_STOP_CASE_BEM_CSD",
+        "description": "The CSD timeout in the BEM is terminated",
+        "translation": "BEM\ufffd\ufffdCSD\ufffd\ufffd\u02b1\ufffd\ufffd\u05b9\"}"
+    },
+    {
+        "code": "0x8000e7",
+        "reason": "GBT_STOP_CASE_BEM_OTHER",
+        "description": "BEM terminated for other reasons",
+        "translation": "BEM\ufffd\ufffd\ufffd\ufffd\u052d\ufffd\ufffd\ufffd\ufffd\u05b9\"}"
+    }
+]

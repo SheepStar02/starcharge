@@ -1,0 +1,44 @@
+{% comment %} 2024/02/22c - Updated div IDs. {% endcomment %}
+
+<script src="/CommonFormUtil.js?20240220c"></script>
+
+<div class="container">
+    <div class="mb-30">
+        <p>View the status of your applications below. To edit an application, click the "Project Title." To <a href="/per-applications/submit-application/">submit a new application</a> click the "<a href="/per-applications/submit-application/" style="color:#6D94BC">Create a New Permit Application</a>" button.</p>
+    </div>
+    <div class="mb-30">
+        <div class="mb-4" id="ProceedApplication" style="display:flex; justify-content:center">
+            <a href="/per-applications/submit-application/"
+               class="btn btn-secondary">Create a new permit application</a>
+        </div>
+    </div>
+    <div class="panel panel-default table-container mb-30">
+        <div class="panel-heading"><h3>Drafts</h3></div>
+        <div id="DivList_Drafts" class="panel-body EntityListDiv"><p>{% include 'entity_list' key: 'Per Applications - Draft' %}</p></div>
+    </div>
+    <div class="panel panel-default table-container mb-30">
+        <div class="panel-heading"><h3>In Progress</h3></div>
+        <div id="DivList_InProgress" class="panel-body EntityListDiv"><p>{% include 'entity_list' key: 'Per Applications - Submitted' %}</p></div>
+    </div>
+    <div class="panel panel-default table-container completed-table">
+        <div class="panel-heading"><h3>Completed</h3></div>
+        <div id="DivList_Completed_Preliminary" class="panel-body EntityListDiv">
+            <h5>Preliminary Project Reviews</h5>
+            <p>{% include 'entity_list' key: 'Preliminary - Completed' %}</p>
+        </div>
+        <div id="DivList_Completed_Applications" class="panel-body EntityListDiv">
+            <h5>Permit Applications</h5>
+            <p>{% include 'entity_list' key: 'Per Applications - Completed' %}</p>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        if (document.querySelector(".notifications")) {
+            document.querySelector(".notifications").classList.add("container")
+        } else {
+            console.log("none")
+        }
+    });
+
+</script>

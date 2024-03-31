@@ -1,194 +1,329 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>StarCRM</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>StarCRM</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-</head>
-
-<body data-bs-theme="dark">
-  <nav class="navbar bg-orange">
-    <div class="container-fluid">
-      <a class="navbar-brand">Star Charge Internal CRM</a>
-      <form class="d-flex" role="search">
-        <a href="/" class="btn btn-success">Back to Main page</a>
-      </form>
-    </div>
-  </nav>
-  <div class="p-4 card col-sm-12">
-    <div class="container">
-      <div class="row">
-        <div class="p-2">
-          <h4>Create New Case</h4>
-        </div>
-        <div class="p-1 col-sm-10 input-group">
-          <span class="input-group-text">DTC | Error Codes</span>
-          <!-- Either / Or, but at least one of the DTC / StopReason needs to be filled in-->
-          <input type="text" placeholder="DTC" aria-label="DTC" class="form-control" id="dtc" />
-          <input id="stop-reason" type="text" placeholder="StopReason" aria-label="Stop Reason" class="form-control" />
-          <!-- Date Picker goes here-->
-          <input id="date" type="text" placeholder="Date of Occurance" aria-label="date" class="form-control"
-            required />
-        </div>
+  <body data-bs-theme="dark">
+    <nav class="navbar bg-orange">
+      <div class="container-fluid">
+        <a class="navbar-brand">Star Charge Internal CRM</a>
+        <form class="d-flex" role="search">
+          <a href="/" class="btn btn-success">Back to Main page</a>
+        </form>
       </div>
-      <div class="row">
-        <div class="p-1 col-sm-10 input-group">
-          <span class="input-group-text">Case Description</span>
-          <input id="description" type="text" placeholder="5 - 10 words" aria-label="description" required
-            class="form-control" />
-        </div>
-        <div class="p-1 col-sm-10 input-group">
-          <span class="input-group-text">Full Description</span>
-          <textarea id="full-description" class="form-control" id="exampleFormControlTextarea1" rows="4"
-            required></textarea>
-        </div>
-        <div class="p-1 col-sm-10 input-group">
-          <span class="input-group-text">Unit Details</span>
-          <div class="p-2 form-control col-sm-6">
-            <select class="form-control" id="unit-details" required>
-              <option value="240">Neptune 240kW</option>
-              <option value="480">Neptune 480kW</option>
-              <option value="180">Titan 180kW</option>
-              <option value="60">Athena 60kW</option>
-              <option value="30">Venus 30kW</option>
-              <!-- Add more options as needed -->
-            </select>
+    </nav>
+    <div class="p-4 card col-sm-12">
+      <div class="container">
+        <div class="row">
+          <div class="p-2">
+            <h4>Create New Case</h4>
           </div>
-          <input id="firmware-version" type="text" placeholder="firmware version" aria-label="fm_version" required
-            class="form-control" />
-          <input id="client-name" type="text" placeholder="Client Name" aria-label="client_name" class="form-control" />
-        </div>
-      </div>
-      <div class="row">
-        <div class="p-1 col-sm-10 input-group">
-          <span class="input-group-text">Severity | Applicability</span>
-          <div class="p-1 form-control col-sm-6">
-            <select class="form-control" id="severity">
-              <option value="1">Low</option>
-              <option value="2">Medium</option>
-              <option value="3">High</option>
-              <option value="4">Critical</option>
-              <!-- Add more options as needed -->
-            </select>
-          </div>
-          <div class="p-1 form-control col-sm-6">
-            <select class="form-control" id="applicability">
-              <option value="1">Frequent</option>
-              <option value="2">Common</option>
-              <option value="3">Rare</option>
-              <option value="4">Unique</option>
-              <option value="5">Never</option>
-              <!-- Add more options as needed -->
-            </select>
+          <div class="p-1 col-sm-10 input-group">
+            <span class="input-group-text">DTC | Error Codes</span>
+            <!-- Either / Or, but at least one of the DTC / StopReason needs to be filled in-->
+            <div class="search-container">
+              <input
+                onkeyup="filterOptions()"
+                type="text"
+                placeholder="DTC"
+                aria-label="DTC"
+                class="form-control"
+                id="dtc"
+              />
+              <div class="dropdown-content" id="dropdownContent">
+                {% for code in codes %}
+                  <a href="#">{{ code }}</a>
+                {% endfor %}
+              </div>
+            </div>
+
+            <input
+              id="stop-reason"
+              type="text"
+              placeholder="StopReason"
+              aria-label="Stop Reason"
+              class="form-control"
+            />
+            <!-- Date Picker goes here-->
+            <input
+              id="date"
+              type="text"
+              placeholder="Date of Occurance"
+              aria-label="date"
+              class="form-control"
+              required
+            />
           </div>
         </div>
-      </div>
-      <div class="row">
-        
-        <!-- <button id="check-button" type="button" class="btn btn-primary">
+        <div class="row">
+          <div class="p-1 col-sm-10 input-group">
+            <span class="input-group-text">Case Description</span>
+            <input
+              id="description"
+              type="text"
+              placeholder="5 - 10 words"
+              aria-label="description"
+              required
+              class="form-control"
+            />
+          </div>
+          <div class="p-1 col-sm-10 input-group">
+            <span class="input-group-text">Full Description</span>
+            <textarea
+              id="full-description"
+              class="form-control"
+              id="exampleFormControlTextarea1"
+              rows="4"
+              required
+            ></textarea>
+          </div>
+          <div class="p-1 col-sm-10 input-group">
+            <span class="input-group-text">Unit Details</span>
+            <div class="p-2 form-control col-sm-6">
+              <select class="form-control" id="unit-details" required>
+                <option value="240">Neptune 240kW</option>
+                <option value="480">Neptune 480kW</option>
+                <option value="180">Titan 180kW</option>
+                <option value="60">Athena 60kW</option>
+                <option value="30">Venus 30kW</option>
+                <!-- Add more options as needed -->
+              </select>
+            </div>
+            <input
+              id="firmware-version"
+              type="text"
+              placeholder="firmware version"
+              aria-label="fm_version"
+              required
+              class="form-control"
+            />
+            <input
+              id="client-name"
+              type="text"
+              placeholder="Client Name"
+              aria-label="client_name"
+              class="form-control"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="p-1 col-sm-10 input-group">
+            <span class="input-group-text">Severity | Applicability</span>
+            <div class="p-1 form-control col-sm-6">
+              <select class="form-control" id="severity">
+                <option value="1">Low</option>
+                <option value="2">Medium</option>
+                <option value="3">High</option>
+                <option value="4">Critical</option>
+                <!-- Add more options as needed -->
+              </select>
+            </div>
+            <div class="p-1 form-control col-sm-6">
+              <select class="form-control" id="applicability">
+                <option value="1">Frequent</option>
+                <option value="2">Common</option>
+                <option value="3">Rare</option>
+                <option value="4">Unique</option>
+                <option value="5">Never</option>
+                <!-- Add more options as needed -->
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- <button id="check-button" type="button" class="btn btn-primary">
           Check Required Fields
         </button> -->
 
-        <button id="submit-button" type="button" class="btn btn-success">
-          Submit
-        </button>
-      </div>
-      <script>
-        const dtc = document.getElementById("dtc");
-        const stopReason = document.getElementById("stop-reason");
-        const date = document.getElementById("date");
-        const description = document.getElementById("description");
-        const fullDescription = document.getElementById("full-description");
-        const unitDetails = document.getElementById("unit-details");
-        const firmwareVersion = document.getElementById("firmware-version");
-        const clientName = document.getElementById("client-name");
-        const severity = document.getElementById("severity");
-        const applicability = document.getElementById("applicability");
-        const checkButton = document.getElementById("check-button");
-        const submitButton = document.getElementById("submit-button");
+          <button id="submit-button" type="button" class="btn btn-success">
+            Submit
+          </button>
+        </div>
+        <script>
+          const dtc = document.getElementById("dtc");
+          const stopReason = document.getElementById("stop-reason");
+          const date = document.getElementById("date");
+          const description = document.getElementById("description");
+          const fullDescription = document.getElementById("full-description");
+          const unitDetails = document.getElementById("unit-details");
+          const firmwareVersion = document.getElementById("firmware-version");
+          const clientName = document.getElementById("client-name");
+          const severity = document.getElementById("severity");
+          const applicability = document.getElementById("applicability");
+          const checkButton = document.getElementById("check-button");
+          const submitButton = document.getElementById("submit-button");
 
-        // Function to check if required fields are filled out
-        function checkRequiredFields() {
-          const requiredFields = [dtc, stopReason, date, description, fullDescription, unitDetails, firmwareVersion, clientName, severity, applicability];
+          function filterOptions() {
+            var input, filter, dropdown, options, a, i, txtValue;
+            input = document.getElementById("dtc");
+            filter = input.value.toUpperCase();
+            dropdown = document.getElementById("dropdownContent");
+            options = dropdown.getElementsByTagName("a");
+            for (i = 0; i < options.length; i++) {
+              a = options[i];
+              txtValue = a.textContent || a.innerText;
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                options[i].style.display = "";
+              } else {
+                options[i].style.display = "none";
+              }
+            }
+          }
 
-          let isValid = true;
-          requiredFields.forEach(field => {
-            if (!field.value) {
-              isValid = false;
-              // You can customize error handling here, such as displaying a message or styling the field
-              field.style.border = "1px solid red";
-            } else {
-              field.style.border = ""; // Reset border if field is filled out
+          document.getElementById("dtc").onclick = function () {
+            document.getElementById("dropdownContent").classList.toggle("show");
+          };
+
+          window.onclick = function (event) {
+            if (!event.target.matches("#dtc")) {
+              var dropdowns =
+                document.getElementsByClassName("dropdown-content");
+              var i;
+              for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains("show")) {
+                  openDropdown.classList.remove("show");
+                }
+              }
+            }
+          };
+
+          var options = document.querySelectorAll("#dropdownContent a");
+          options.forEach(function (option) {
+            option.onclick = function () {
+              document.getElementById("dtc").value = option.textContent;
             }
           });
 
-          if (!isValid) {
-            Swal.fire({
-              icon: "error",
-              title: "Warning",
-              text: "Please fill out all fields",
+          // Function to check if required fields are filled out
+          function checkRequiredFields() {
+            const requiredFields = [
+              dtc,
+              stopReason,
+              date,
+              description,
+              fullDescription,
+              unitDetails,
+              firmwareVersion,
+              clientName,
+              severity,
+              applicability,
+            ];
+
+            let isValid = true;
+            requiredFields.forEach((field) => {
+              if (!field.value) {
+                isValid = false;
+                // You can customize error handling here, such as displaying a message or styling the field
+                field.style.border = "1px solid red";
+              } else {
+                field.style.border = ""; // Reset border if field is filled out
+              }
             });
-            return false;
+
+            if (!isValid) {
+              Swal.fire({
+                icon: "error",
+                title: "Warning",
+                text: "Please fill out all fields",
+              });
+              return false;
+            }
+
+            return true;
           }
 
-          return true;
-        }
+          submitButton.onclick = function () {
+            // Check if all required fields are filled out before submission
+            if (checkRequiredFields()) {
+              const body = {
+                dtc: dtc.value,
+                stopReason: stopReason.value,
+                date: date.value,
+                description: description.value,
+                fullDescription: fullDescription.value,
+                unitDetails: unitDetails.value,
+                firmwareVersion: firmwareVersion.value,
+                clientName: clientName.value,
+                severity: severity.value,
+                applicability: applicability.value,
+              };
 
-        submitButton.onclick = function () {
-          // Check if all required fields are filled out before submission
-          if (checkRequiredFields()) {
-            const body = {
-              dtc: dtc.value,
-              stopReason: stopReason.value,
-              date: date.value,
-              description: description.value,
-              fullDescription: fullDescription.value,
-              unitDetails: unitDetails.value,
-              firmwareVersion: firmwareVersion.value,
-              clientName: clientName.value,
-              severity: severity.value,
-              applicability: applicability.value
-            };
+              console.log(body);
 
-            console.log(body);
-
-            fetch("/addCase", {
-              method: "POST",
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(body)
-            })
-              .then(response => response.json())
-              .then(data => {
-                // Clear input fields after submission
-                dtc.value = '';
-                stopReason.value = '';
-                date.value = '';
-                description.value = '';
-                fullDescription.value = '';
-                unitDetails.value = '';
-                firmwareVersion.value = '';
-                clientName.value = '';
-                severity.value = '';
-                applicability.value = '';
-                Swal.fire({
-                  title: "Good job!",
-                  text: "Submitted",
-                  icon: "success"
-                });
+              fetch("/addCase", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(body),
               })
-              .catch(error => console.error('Error:', error));
-          }
-        };
-      </script>
+                .then((response) => response.json())
+                .then((data) => {
+                  // Clear input fields after submission
+                  dtc.value = "";
+                  stopReason.value = "";
+                  date.value = "";
+                  description.value = "";
+                  fullDescription.value = "";
+                  unitDetails.value = "";
+                  firmwareVersion.value = "";
+                  clientName.value = "";
+                  severity.value = "";
+                  applicability.value = "";
+                  Swal.fire({
+                    title: "Good job!",
+                    text: "Submitted",
+                    icon: "success",
+                  });
+                })
+                .catch((error) => console.error("Error:", error));
+            }
+          };
+        </script>
+      </div>
     </div>
-  </div>
-</body>
+  </body>
+  <style>
+    .search-container {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: var(--bs-body-bg);
+      color: white;
+      min-width: 200px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      max-height: 500px;
+      overflow: auto;
+    }
 
+    .dropdown-content a {
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: var(--bs-tertiary-bg);
+    }
+
+    .show {
+      display: block;
+    }
+  </style>
 </html>

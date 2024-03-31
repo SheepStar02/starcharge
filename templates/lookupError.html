@@ -61,7 +61,7 @@
         <script>
             async function fetchData() {
                 try {
-                    const response = await fetch('OUTPUT_DTC.json');
+                    const response = await fetch('./output_dtc');
                     const data = await response.json();
                     return data;
                 } catch (error) {
@@ -111,7 +111,7 @@
 
             async function fetchDataStopReason() {
                 try {
-                    const response = await fetch('OUTPUT_STOPREASON.json');
+                    const response = await fetch('./output_stopreason');
                     const data = await response.json();
                     return data;
                 } catch (error) {

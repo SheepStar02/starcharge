@@ -1,0 +1,650 @@
+[
+    {
+        "code": "0x100001",
+        "reason": "DTC_SCREEN_TOUCHERR",
+        "description": "\"Terminal touch screen touch fault\"",
+        "translation": "\"\ufffd\u0576\u02f4\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100002",
+        "reason": "DTC_SCREENLIGHTSENSOR_ERR",
+        "description": "\"Terminal touch screen light sensor fault\"",
+        "translation": "\"\ufffd\u0576\u02f4\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u2d2b\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100003",
+        "reason": "DTC_SENSOR_COMERR",
+        "description": "\"Sensor communication fault\"",
+        "translation": "\"\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u0368\ufffd\u0179\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100004",
+        "reason": "DTC_OTA_FAIL",
+        "description": "\"Update failed\"",
+        "translation": "\"\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u02a7\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100005",
+        "reason": "DTC_CARDREADER_COMERR",
+        "description": "\"Card reader Offline\"",
+        "translation": "\"\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u0368\ufffd\u0179\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100006",
+        "reason": "DTC_RESET_FAIL",
+        "description": "\"Fail to reset\"",
+        "translation": "\"\ufffd\ufffd\u03bb\u02a7\ufffd\u0723\ufffd\u04f2\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x100007",
+        "reason": "DTC_INSULATION_WARNING",
+        "description": "\"Insulation warning\"",
+        "translation": "\"\ufffd\ufffd\u0535\ufffd\ufffd\ufffd\u68e8\ufffd\ufffd\u03b4\ufffd\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100008",
+        "reason": "DTC_WEAKSIGNAL",
+        "description": "\"Weak wireless signal\"",
+        "translation": "\"\ufffd\ufffd\ufffd\ufffd\ufffd\u017a\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100009",
+        "reason": "DTC_TERMINAL_SD_ERR",
+        "description": "\"Terminal SD card fault\"",
+        "translation": "\"\ufffd\u0576\ufffd\ufffd\u2cbf\ufffd\u6d22\ufffd\ucce3 \"}"
+    },
+    {
+        "code": "0x10000A",
+        "reason": "DTC_TERMINAL_SURGE_ERR",
+        "description": "\"Terminal input surge protection alarm\"",
+        "translation": "\"\ufffd\u0576\ufffd\ufffd\ufffd\u04ff\ufffd\ufffd\ufffd\ufffd\ufffd\u6faf\"}"
+    },
+    {
+        "code": "0x10000B",
+        "reason": "DTC_SMALL_FAN_ERR",
+        "description": "\"Small fan fault report alarm\"",
+        "translation": "\"\u0421\ufffd\ufffd\ufffd\u0239\ufffd\ufffd\u03f8\u6faf \"}"
+    },
+    {
+        "code": "0x10000C",
+        "reason": "DTC_SECCSOCKET_OFFLINE",
+        "description": "\"SECC socket connection warning\"",
+        "translation": "\"SECC Socket\ufffd\ufffd\ufffd\u04fe\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x10000D",
+        "reason": "DTC_SECC_UPGRADE_ERR",
+        "description": "\"SECC Update failed\"",
+        "translation": "\"SECC\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x10000F",
+        "reason": "DTC_ENVIR_BOARD_ODDLINE",
+        "description": "\"Environment detection board offline\"",
+        "translation": "\"\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100010",
+        "reason": "DTC_SELF_CHECKING",
+        "description": "\"Self Check Processing\"",
+        "translation": "\"\ufffd\u8c78\ufffd\u053c\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100011",
+        "reason": "DTC_SELF_CHECK_ERR",
+        "description": "\"Self Check Fail\"",
+        "translation": "\"\ufffd\u8c78\ufffd\u053c\ufffd\u02a7\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100012",
+        "reason": "DTC_TOP_LIGHT_ERR",
+        "description": "\"Communication failure of top light belt\"",
+        "translation": "\"\ufffd\ufffd\ufffd\ufffd\ufffd\u01b4\ufffd\u0368\u0476\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100013",
+        "reason": "DTC_TENSION_SENSOR_ERR",
+        "description": "\"The force sensor of the electric cable receiver is faulty\"",
+        "translation": "\"\ufffd\u7daf\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x100014",
+        "reason": "DTC_SWITCH_SIGNAL_ERR",
+        "description": "\"The switch signal of the electric cable receiver is lost\"",
+        "translation": "\"\ufffd\u7daf\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u017a\u0176\ufffd\u02a7\"}"
+    },
+    {
+        "code": "0x100015",
+        "reason": "DTC_MOTOR_ERR",
+        "description": "\"The servo driver of the electric cable receiver is faulty\"",
+        "translation": "\"\ufffd\u7daf\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u0177\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x100016",
+        "reason": "DTC_EXCESSIVE_RESISTANCE_ERR",
+        "description": "\"The winding resistance of the electric cable collector is too large\"",
+        "translation": "\"\ufffd\u7daf\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x100017",
+        "reason": "DTC_CORD_REEL_COMERR",
+        "description": "\"The communication of the electric cable receiver is faulty\"",
+        "translation": "\"\ufffd\u7daf\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u0368\u0476\ufffd\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x100101",
+        "reason": "DTC_INTERNAL_OVERTEMP",
+        "description": "\"Over-temperature fault inside the terminal\"",
+        "translation": "\"\ufffd\u0576\ufffd\ufffd\u06b2\ufffd\ufffd\ufffd\ufffd\u00b9\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100102",
+        "reason": "DTC_CONNECTOR_OVERTEMP",
+        "description": "\"Cable joint over-temperature alarm\"",
+        "translation": "\"\ufffd\ufffd\ufffd\u00bd\ufffd\u0377\ufffd\ufffd\ufffd\u00b8\u6faf \"}"
+    },
+    {
+        "code": "0x100103",
+        "reason": "DTC_CONNECTOR_TEMPDIFF",
+        "description": "\"Cable joint temperature difference alarm\"",
+        "translation": "\"\ufffd\ufffd\ufffd\u00bd\ufffd\u0377\ufffd\u00b2\ufffd\u6faf \"}"
+    },
+    {
+        "code": "0x100104",
+        "reason": "DTC_ATMOS_WARN",
+        "description": "\"High atmospheric pressure warning\"",
+        "translation": "\"\ufffd\ufffd\ufffd\ufffd\u0479\ufffd\u6faf \"}"
+    },
+    {
+        "code": "0x100201",
+        "reason": "DTC_TRIAL_OUTTIME",
+        "description": "\"Expiration of product trial period\"",
+        "translation": "\"\ufffd\ufffd\u01b7\ufffd\ufffd\ufffd\ufffd\ufffd\u06bd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100202",
+        "reason": "DTC_EMERGENCYSTOP",
+        "description": "\"Terminal emergency stop is pressed\"",
+        "translation": "\"\u05ee\ufffd\u02fc\ufffd\u0363\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100203",
+        "reason": "DTC_APS_CTRLERR",
+        "description": "\"Auxiliary power control fault\"",
+        "translation": "\"\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u0534\ufffd\ufffd\ufffd\u01b9\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100204",
+        "reason": "DTC_PLC_COMOVERTIME",
+        "description": "\"PLC communication timeout\"",
+        "translation": "\"PLC\u0368\u0476\ufffd\ufffd\u02b1 \ufffd\ufffd\u03b4\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100205",
+        "reason": "DTC_LOCK_CTRLERR",
+        "description": "\"Gun lock control fault\"",
+        "translation": "\"\u01f9\ufffd\ufffd\ufffd\ufffd\ufffd\u01b9\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x100206",
+        "reason": "DTC_GROUND_ERR",
+        "description": "\"Ground Fault\"",
+        "translation": "\"\ufffd\u04f5\u0639\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100207",
+        "reason": "DTC_INSULATIONBRD_ERR",
+        "description": "\"Insulation board fault (communication",
+        "translation": "hardware)\""
+    },
+    {
+        "code": "0x100208",
+        "reason": "DTC_OUTPUTRELAY_CTRLERR",
+        "description": "\"Output relay control fault\"",
+        "translation": "\"\ufffd\ufffd\ufffd\ufffd\u0335\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u01b9\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100209",
+        "reason": "DTC_DISCHARGE_ERR",
+        "description": "\"Discharge resistance fault\"",
+        "translation": "\"\u0436\ufffd\u0175\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x10020A",
+        "reason": "DTC_INSULATION_FAULT",
+        "description": "\"Insulation fault\"",
+        "translation": "\"\ufffd\ufffd\u0535\ufffd\ufffd\ufffd\u03e3\ufffd\ufffd\ufffd\u03b4\ufffd\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x10020B",
+        "reason": "DTC_TERMINAL_LIQUIDLEVEL_WARN",
+        "description": "\"Terminal liquid level alarm\"",
+        "translation": "\"\ufffd\u0576\ufffd\u04ba\u03bb\ufffd\u6faf \"}"
+    },
+    {
+        "code": "0x10020C",
+        "reason": "DTC_DOOR_OPEN",
+        "description": "\"Terminal door open\"",
+        "translation": "\"\ufffd\u0576\ufffd\ufffd\u0174\ufffd \"}"
+    },
+    {
+        "code": "0x10020D",
+        "reason": "DTC_HUMIDITY_WARN",
+        "description": "\"High humidity alarm\"",
+        "translation": "\"\ufffd\ufffd\u02aa\ufffd\u0238\u6faf\"}"
+    },
+    {
+        "code": "0x10020E",
+        "reason": "DTC_SLOPE_WARN",
+        "description": "\"Impact warning\"",
+        "translation": "\"\u05f2\ufffd\ufffd\ufffd\u6faf \"}"
+    },
+    {
+        "code": "0x10020F",
+        "reason": "DTC_METER_ERR",
+        "description": "\"Meter fault (communication",
+        "translation": "data error)\""
+    },
+    {
+        "code": "0x100210",
+        "reason": "DTC_CTRLBOARD_COMERR",
+        "description": "\"Communication fault with the subboard\"",
+        "translation": "\"\ufffd\ufffd\u05f0\ufffd\u0368\ufffd\u0179\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x100211",
+        "reason": "DTC_POWERLOSS",
+        "description": "\"Power loss fault\"",
+        "translation": "\"\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100212",
+        "reason": "DTC_PWRUNIT_COMERR",
+        "description": "\"Communication fault with the power cabinet\"",
+        "translation": "\"\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u0368\ufffd\ufffd\ufffd\ucce3 \"}"
+    },
+    {
+        "code": "0x100213",
+        "reason": "DTC_OVERCUR",
+        "description": "\"Over-current fault\"",
+        "translation": "\"\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100214",
+        "reason": "DTC_OUTPUT_OVERVOL",
+        "description": "\"Output over-voltage\"",
+        "translation": "\"\ufffd\ufffd\ufffd\ufffd\ufffd\u0479 \"}"
+    },
+    {
+        "code": "0x100215",
+        "reason": "DTC_RCD_WARN",
+        "description": "\"RCD warm or fault\"",
+        "translation": "\"RCD\ufffd\u6faf \"}"
+    },
+    {
+        "code": "0x100216",
+        "reason": "DTC_PLCBRD_COMERR",
+        "description": "\"PLC board offline\"",
+        "translation": "\"PLC\ufffd\ufffd\ufffd\ufffd\ufffd\u07f9\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100217",
+        "reason": "DTC_ACSUBBOARD_COMERR",
+        "description": "\"Communication fault with the AC-subboard\"",
+        "translation": "\"AC\ufffd\ufffd\ufffd\u05f0\ufffd\ufffd\ufffd\ufffd\u07f9\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x100219",
+        "reason": "DTC_EVCC_COMERR",
+        "description": "\"Communication fault with EV Car\"",
+        "translation": "\"\ufffd\ufffd\ufffd\ufffd\u0368\ufffd\u0179\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x10021A",
+        "reason": "DTC_MAINBOARD_COMERR",
+        "description": "\"Communication fault with A7-Board\"",
+        "translation": "\"\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u0368\ufffd\u0179\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x10021B",
+        "reason": "DTC_GETTERMINALMSG_TIMEOUT",
+        "description": "\"Get EV message timeout\"",
+        "translation": "\"\ufffd\ufffd\u0221\u05ee\ufffd\ufffd\ufffd\ufffd\u03e2\ufffd\ufffd\u02b1\"}"
+    },
+    {
+        "code": "0x10021C",
+        "reason": "DTC_BREAKER_OPEN",
+        "description": "\"Breaker off\"",
+        "translation": "\"\ufffd\ufffd\u00b7\ufffd\ufffd\ufffd\u03ff\ufffd\"}"
+    },
+    {
+        "code": "0x10021D",
+        "reason": "DTC_TERMINALMSGPLC_TIMEOUT",
+        "description": "\"Response to PLC board timeout\"",
+        "translation": "\"\u05ee\ufffd\ufffd\ufffd\ufffd\u03e2PLC\ufffd\u0638\ufffd\ufffd\ufffd\u02b1\"}"
+    },
+    {
+        "code": "0x10021E",
+        "reason": "DTC_DRAINAGE_TIMEOUT",
+        "description": "\"Discharger timeout\"",
+        "translation": "\"\u0439\ufffd\u0173\ufffd\u02b1\"}"
+    },
+    {
+        "code": "0x10021F",
+        "reason": "DTC_PRECHARGE_TIMEOUT",
+        "description": "\"Precharge timeout\"",
+        "translation": "\"\u0524\ufffd\u4cec\u02b1\"}"
+    },
+    {
+        "code": "0x100220",
+        "reason": "DTC_GUNCONNECT_BREAK",
+        "description": "\"Gun disconnection\"",
+        "translation": "\"\u01f9\ufffd\ufffd\ufffd\u04f6\u03ff\ufffd\"}"
+    },
+    {
+        "code": "0x100221",
+        "reason": "DTC_FUSE_WARN",
+        "description": "\"Terminal fuse alarm\"",
+        "translation": "\"\ufffd\ufffd\ufffd\ufffd\ufffd\u0576\ufffd\ufffd\u06f6\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x100222",
+        "reason": "DTC_GUN_UNAVAILABLE",
+        "description": "\"Gun unavailable\"",
+        "translation": "\"\u01f9\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x100223",
+        "reason": "DTC_OVER_TEMP_INSIDE",
+        "description": "\"Over-temperature fault inside the terminal\"",
+        "translation": "\"\ufffd\u0576\ufffd\ufffd\u06b2\ufffd\ufffd\ufffd\ufffd\u00b9\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x100224",
+        "reason": "DTC_CONNECTORTAIL_OVERTEMP",
+        "description": "\"The end of the liquid cooled gun is too warm\"",
+        "translation": "\"\u04ba\ufffd\ufffd\u01f9\u01f9\u03b2\ufffd\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x100225",
+        "reason": "DTC_FUSE_OPEN",
+        "description": "\"Open circuit of fuse\"",
+        "translation": "\"\ufffd\ufffd\ufffd\ufffd\u06f6\ufffd\ufffd\ufffd\ufffd\ufffd\u00b7 \"}"
+    },
+    {
+        "code": "0x200001",
+        "reason": "DTC_MDLCOMM",
+        "description": "\"Power module communication fault\"",
+        "translation": "\"\ufffd\ufffd\u0534\u0123\ufffd\ufffd\u0368\ufffd\u0179\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x200002",
+        "reason": "DTC_MDLERR",
+        "description": "\"Power module fault\"",
+        "translation": "\"\ufffd\ufffd\u0534\u0123\ufffd\u9c68\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x200003",
+        "reason": "DTC_PDUERR",
+        "description": "\"PDU relay control fault\"",
+        "translation": "\"PDU\ufffd\u0335\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u01b9\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x200004",
+        "reason": "DTC_PDUCOMM",
+        "description": "\"PDU communication fault\"",
+        "translation": "\"PDU\u0368\ufffd\u0179\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x200005",
+        "reason": "DTC_C_SCREEN_TOUCHERR",
+        "description": "\"Power cabinet touch screen touch fault\"",
+        "translation": "\"\ufffd\ufffd\ufffd\u02b9\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x200006",
+        "reason": "DTC_C_SCREENLIGHTSENSOR_ERR",
+        "description": "\"Power cabinet touch screen light sensor fault\"",
+        "translation": "\"\ufffd\ufffd\ufffd\u02b9\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u2d2b\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x200007",
+        "reason": "DTC_STORAGE",
+        "description": "\"Power cabinet SD card fault\"",
+        "translation": "\"\ufffd\ufffd\ufffd\u02b9\ufffd\ufffd\u2cbf\ufffd\u6d22\ufffd\ucce3\ufffd\ufffd\ufffd\ufffd\u05ee) \"}"
+    },
+    {
+        "code": "0x200008",
+        "reason": "DTC_SURGE",
+        "description": "\"Input surge protection alarm\"",
+        "translation": "\"\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u04ff\ufffd\ufffd\ufffd\ufffd\ufffd\u6faf\ufffd\ufffd\ufffd\ufffd\u05ee\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x200009",
+        "reason": "DTC_ACMETERCOMM",
+        "description": "\"AC meter fault (communication",
+        "translation": "data error)\""
+    },
+    {
+        "code": "0x20000A",
+        "reason": "DTC_HEARTOVERTIME",
+        "description": "\"Communication fault with terminal\"",
+        "translation": "\"\ufffd\ufffd\ufffd\u0576\ufffd\u0368\ufffd\ufffd\ufffd\ucce3\ufffd\ufffd\ufffd\ufffd\u01f9\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x200101",
+        "reason": "DTC_MDLTEMP",
+        "description": "\"Power module over-temperature fault\"",
+        "translation": "\"\ufffd\ufffd\u0534\u0123\ufffd\ufffd\ufffd\ufffd\u00a3\ufffd\ufffd\ufffd\u05ee\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x200102",
+        "reason": "DTC_PDUTEMP",
+        "description": "\"PDU over-temperature fault\"",
+        "translation": "\"PDU\ufffd\ufffd\ufffd\u00b9\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x200103",
+        "reason": "DTC_FANCOMM",
+        "description": "\"Power control fan communication fault\"",
+        "translation": "\"\ufffd\ufffd\ufffd\u02bf\ufffd\ufffd\u01b7\ufffd\ufffd\ufffd\u0368\ufffd\ufffd\ufffd\ucce3\ufffd\ufffd\ufffd\ufffd\u05ee\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x200104",
+        "reason": "DTC_FANERR",
+        "description": "\"Power control fan fault (alarm)\"",
+        "translation": "\"\ufffd\ufffd\ufffd\u02bf\ufffd\ufffd\u01b7\ufffd\ufffd\u0239\ufffd\ufffd\u03e3\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u05ee\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x200105",
+        "reason": "DTC_UNITTEMP",
+        "description": "\"Power cabinet over-temperature alarm\"",
+        "translation": "\"\ufffd\ufffd\ufffd\u02b9\ufffd\ufffd\ufffd\u00b8\u6faf\ufffd\ufffd\ufffd\ufffd\u05ee\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x200201",
+        "reason": "DTC_PWRERR",
+        "description": "\"Power control output fault\"",
+        "translation": "\"\ufffd\ufffd\ufffd\u02bf\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ucce3 \"}"
+    },
+    {
+        "code": "0x200202",
+        "reason": "DTC_PWRUNIT_EMERGENCYSTOP",
+        "description": "\"Power cabinet emergency stop is pressed\"",
+        "translation": "\"\ufffd\ufffd\ufffd\u02b9\ufffd\u0363\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x200203",
+        "reason": "DTC_PWRUNIT_LIQUIDLEVEL_WARN",
+        "description": "\"Power cabinet liquid level alarm\"",
+        "translation": "\"\ufffd\ufffd\ufffd\u02b9\ufffd\u04ba\u03bb\ufffd\u6faf \"}"
+    },
+    {
+        "code": "0x200204",
+        "reason": "DTC_PWRUNIT_DOOROPEN",
+        "description": "\"Power cabinet door open\"",
+        "translation": "\"\ufffd\ufffd\ufffd\u02b9\ufffd\ufffd\u0174\ufffd \"}"
+    },
+    {
+        "code": "0x200205",
+        "reason": "DTC_OUTSHORT",
+        "description": "\"Output short circuit\"",
+        "translation": "\"\ufffd\ufffd\ufffd\ufffd\ufffd\u00b7 \"}"
+    },
+    {
+        "code": "0x200206",
+        "reason": "DTC_OVERVOL",
+        "description": "\"Input over-voltage fault\"",
+        "translation": "\"\ufffd\ufffd\ufffd\ufffd\ufffd\u0479\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x200207",
+        "reason": "DTC_ACRELAY",
+        "description": "\"Input relay control fault\"",
+        "translation": "\"\ufffd\ufffd\ufffd\ufffd\u0335\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u01b9\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x200208",
+        "reason": "DTC_UNDERVOL",
+        "description": "\"Input under-voltage fault\"",
+        "translation": "\"\ufffd\ufffd\ufffd\ufffd\u01f7\u0479\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x200209",
+        "reason": "DTC_PWRUNIT_CIRCUITBREAKER_ERR",
+        "description": "\"Circuit breaker is disconnected\"",
+        "translation": "\"\ufffd\ufffd\u00b7\ufffd\ufffd\ufffd\u047f\ufffd \"}"
+    },
+    {
+        "code": "0x20020B",
+        "reason": "DTC_IMPACT",
+        "description": "\"Impact warning\"",
+        "translation": "\"\ufffd\ufffd\u0431\ufffd\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x20020C",
+        "reason": "DTC_PWRUNIT_FUSING",
+        "description": "\"Fusing Warning\"",
+        "translation": "\"\ufffd\u06f6\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x20020D",
+        "reason": "DTC_PWRUNIT_SMOKE",
+        "description": "\"Smoke Warning\"",
+        "translation": "\"\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\"}"
+    },
+    {
+        "code": "0x300101",
+        "reason": "DTC_OVER_TEMP_WARNING",
+        "description": "\"HPC-cooler over-temperature warning\"",
+        "translation": "\"\u04ba\ufffd\ufffd\ufffd\u8c78\ufffd\ufffd\ufffd\u00b1\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x300102",
+        "reason": "DTC_LIQUID_LOW_LEVEL_WARNING",
+        "description": "\"HPC-cooler liquid level warning\"",
+        "translation": "\"\u04ba\ufffd\ufffd\ufffd\u8c78\u04ba\u03bb\ufffd\ufffd\ufffd\u0371\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x300103",
+        "reason": "DTC_LIQUID_LOW_TEMP_WARNING",
+        "description": "\"HPC-cooler low liquid temperature warning\"",
+        "translation": "\"\u04ba\ufffd\ufffd\ufffd\u8c78\ufffd\ufffd\u0234\u04ba\ufffd\u00b6\u0239\ufffd\ufffd\u0371\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x300104",
+        "reason": "DTC_OVER_TEMP_FAULT",
+        "description": "\"HPC-cooler over temperature fault\"",
+        "translation": "\"\u04ba\ufffd\ufffd\ufffd\u8c78\ufffd\ufffd\ufffd\u00b1\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x300105",
+        "reason": "DTC_LIQUID_LOW_LEVEL_FAULT",
+        "description": "\"HPC-cooler liquid level fault\"",
+        "translation": "\"\u04ba\ufffd\ufffd\ufffd\u8c78\u04ba\u03bb\ufffd\ufffd\ufffd\u0371\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x300106",
+        "reason": "DTC_LIQUID_LOW_TEMP_FAULT",
+        "description": "\"HPC-cooler low liquid temperature fault\"",
+        "translation": "\"\u04ba\ufffd\ufffd\ufffd\u8c78\ufffd\ufffd\u0234\u04ba\ufffd\u00b6\u0239\ufffd\ufffd\u0371\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x300107",
+        "reason": "DTC_MAINBOARD_OFFLINE",
+        "description": "\"HPC-cooler mainboard offline\"",
+        "translation": "\"\u04ba\ufffd\ufffd\ufffd\ufffd\u01b0\ufffd\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x300108",
+        "reason": "DTC_OUTLET_PRESSURE_WARNING",
+        "description": "\"HPC-cooler liquid pump outlet pressure warning\"",
+        "translation": "\"\u04ba\ufffd\u00f3\ufffd\ufffd\ufffd\u0479\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x300109",
+        "reason": "DTC_HPCCOOLER_FAN_ERR",
+        "description": "\"HPC-cooler fan failure\"",
+        "translation": "\"\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x30010A",
+        "reason": "DTC_HPCCOOLER_TEM_SENSOR_ERR",
+        "description": "\"HPC-cooler temperature sensor failure\"",
+        "translation": "\"\ufffd\u00b6\u0234\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x30010B",
+        "reason": "DTC_HPCCOOLER_PRE_SENSOR_ERR",
+        "description": "\"HPC-cooler pressure sensor failure\"",
+        "translation": "\"\u0479\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x30010C",
+        "reason": "DTC_HPCCOOLER_24V_OVERVOLTAGE",
+        "description": "\"HPC-cooler 24V overvoltage\"",
+        "translation": "\"24V\ufffd\ufffd\u0479\ufffd\ufffd\u0479 \"}"
+    },
+    {
+        "code": "0x30010D",
+        "reason": "DTC_HPCCOOLER_24V_UNDERVOLTAGE",
+        "description": "\"HPC-cooler 24V undervoltage\"",
+        "translation": "\"24V\ufffd\ufffd\u0479\u01f7\u0479 \"}"
+    },
+    {
+        "code": "0x30010E",
+        "reason": "DTC_HPCCOOLER_PUMP_FAILURE",
+        "description": "\"HPC-cooler pump failure\"",
+        "translation": "\"\u04ba\ufffd\u00f9\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x300201",
+        "reason": "DTC_HPCCOOLER_ERR",
+        "description": "\"HPC-cooler fault\"",
+        "translation": "\"\u04ba\ufffd\ufffd\ufffd\u8c78\ufffd\ufffd\ufffd\ufffd\u05f4\u032c\ufffd\u03f1\ufffd \"}"
+    },
+    {
+        "code": "0x300202",
+        "reason": "DTC_HPCCOOLERDOOR_ERR",
+        "description": "\"HPC-cooler door open\"",
+        "translation": "\"\u04ba\ufffd\ufffd\ufffd\u8c78\ufffd\u0433\u033f\ufffd\ufffd\u0634\ufffd\ufffd\ufffd\ufffd\u03f1\ufffd \"}"
+    },
+    {
+        "code": "0x300203",
+        "reason": "DTC_HPCCOOLER_PIPE_JAM_ERR",
+        "description": "\"HPC-cooler pipe jam\"",
+        "translation": "\"\ufffd\u0735\ufffd\ufffd\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x300204",
+        "reason": "DTC_HPCCOOLER_PUMP_ERR",
+        "description": "\"HPC-cooler pump failure\"",
+        "translation": "\"\u04ba\ufffd\u00f9\ufffd\ufffd\ufffd \"}"
+    },
+    {
+        "code": "0x300205",
+        "reason": "DTC_HPCCOOLER_SHORTAGE_ERR",
+        "description": "\"HPC-cooler liquid shortage alarm\"",
+        "translation": "\"\u0231\u04ba\ufffd\ufffd\ufffd\ufffd \"}"
+    }
+]
