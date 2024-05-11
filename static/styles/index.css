@@ -1,0 +1,14 @@
+.row {
+  margin: 0;
+  gap: 20px
+}
+
+.row > div {
+  padding: 0;
+  width: calc(25% - 20px)
+}
+
+#submit-button {
+  padding-left: 60px;
+  padding-right: 60px;
+}

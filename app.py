@@ -21,10 +21,31 @@ class Case(db.Model):
     client_name = db.Column(db.String(255))
     severity = db.Column(db.String(255))
     applicability = db.Column(db.String(255))
+    
+    def to_json(self):
+        return {
+            'id': self.id,
+            'dtc': self.dtc,
+            'stop_reason': self.stop_reason,
+            'date': self.date,
+            'status': self.status,
+            'description': self.description,
+            'full_description': self.full_description,
+            'unit_details': self.unit_details,
+            'firmware_version': self.firmware_version,
+            'client_name': self.client_name,
+            'severity': self.severity,
+            'applicability': self.applicability
+        }
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    cases = Case.query.filter(Case.status != "Close - Resolved").all()
+    converted = [case.to_json() for case in cases]
+    print(converted)
+    cases_json = json.dumps([case.to_json() for case in cases])
+    print(cases_json)
+    return render_template('index.html', cases=cases, cases_json=jsonify(cases_json).get_json())
 
 @app.route('/newCase')
 def new_case():
@@ -32,7 +53,6 @@ def new_case():
         data = json.load(file)
         codes = [item['code'] for item in data]
         return render_template('newCase.html', codes=codes)
-    return render_template('newCase.html')
 
 @app.route('/changeOCPP')
 def change_ocpp():

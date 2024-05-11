@@ -1,0 +1,86 @@
+:root {
+  --accent: #198754;
+  --table-stripe: rgb(36, 36, 35);
+}
+
+html {
+  margin: 0;
+}
+
+body {
+  margin: 0;
+}
+
+.star-table table {
+  margin: 0;
+}
+
+.star-table {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  overflow: auto;
+}
+
+.star-table thead td {
+  background-color: var(--accent);
+}
+
+.star-table td {
+  max-width: 150px;
+  text-overflow: ellipsis;
+  background-color: transparent;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.star-table tbody tr {
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+
+.star-table tbody tr:hover {
+  background-color: rgb(73, 73, 73);
+}
+
+.star-table tr:last-child td {
+  border-bottom-width: 0;
+}
+
+h2 {
+  padding: 20px 0;
+  margin: 0;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+nav.navbar {
+  padding: 20px;
+  background-color: rgb(20, 25, 30);
+}
+
+.content-wrap {
+  padding: 20px;
+}
+
+.star-table td[data-status='Reviewing'] {
+  color: rgb(0, 255, 0);
+}
+
+.star-table td[data-status='In Progress'] {
+  color: orange
+}
+
+.star-table td[data-status='Closed - Not Resolved'] {
+  color: red
+}
+
+.star-table td[data-status='Closed - Resolved'] {
+  color: red
+}

@@ -4,16 +4,23 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>StarCRM</title>
-    <link rel="stylesheet" href="style.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <link
+    href= "{{ url_for('static', filename='styles/global.css') }}"
+    rel="stylesheet"
+  />
+    <link
+    href= "{{ url_for('static', filename='styles/index.css') }}"
+    rel="stylesheet"
+  />
   </head>
 
-  <body data-bs-theme="dark" class="p-3">
+  <body data-bs-theme="dark">
     <nav class="navbar bg-orange">
       <div class="container-fluid">
         <a class="navbar-brand">Star Charge Internal CRM</a>
@@ -24,110 +31,109 @@
         </form>
       </div>
     </nav>
-    <div class="p-2 card col-sm-12">
-      <div class="card-body">
-        <h5 class="card-title">Filter</h5>
-
-        <div class="row">
-          <div class="form-group col-sm-3">
-            <label for="input1">Case #</label>
-            <input type="text" class="form-control" id="casenum" />
-          </div>
-          <div class="form-group col-sm-3">
-            <label for="input2">DTC</label>
-            <input type="text" class="form-control" id="dtc" />
-          </div>
-          <div class="form-group col-sm-3">
-            <label for="input3">StopReason</label>
-            <input type="text" class="form-control" id="stop-reason" />
-          </div>
-          <div class="form-group col-sm-3">
-            <label for="input4">Unit Type</label>
-            <div class="form-group">
-              <select class="form-control" id="unit-type">
-                <option value="">Select Value</option>
-                <option value="240">Neptune 240kW</option>
-                <option value="480">Neptune 480kW</option>
-                <option value="180">Titan 180kW</option>
-                <option value="60">Athena 60kW</option>
-                <option value="30">Venus 30kW</option>
-              </select>
+    <div class="content-wrap">
+      <h2>Filter</h2>
+      <div class="filter-wrap">
+          <div class="row">
+            <div class="form-group col-sm-3">
+              <label for="input1">Case #</label>
+              <input type="text" class="form-control" id="casenum" />
             </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="p-1 col-sm-6" id="submit-button">
-            <button type="button" class="btn btn-success">Search</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <hr />
-    <div id="results" class="">
-      <table class="table">
-        <thead>
-          <tr>
-            <td>ID</td>
-            <td>DTC</td>
-            <td>Stop Reason</td>
-            <td>Date</td>
-            <td>Status</td>
-            <td>Description</td>
-            <td>Full Description</td>
-            <td>Unit Details</td>
-            <td>Firmware Version</td>
-            <td>Client Name</td>
-            <td>Severity</td>
-            <td>Applicability</td>
-          </tr>
-        </thead>
-        <div
-          class="modal fade"
-          id="detailsModal"
-          tabindex="-1"
-          aria-labelledby="detailsModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="detailsModalLabel">Details</h5>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="modal-body">
-                <hr />
-
-                <!-- Details will be populated here -->
-              </div>
-              <div class="modal-footer">
-                <select style="padding: 0.5rem; border-radius: 10px" id="setStatus">
-                  <option value="Not Reviewed">Not Reviewed</option>
-                  <option value="Reviewing">Reviewing</option>
-                  <option value="In Progress">In Progress</option>
-                  <option value="Awaiting Instructions">Awaiting Instructions</option>
-                  <option value="Closed - Not Resolved">Closed - Not Resolved</option>
-                  <option value="Close - Resolved">Close - Resolved</option>
+            <div class="form-group col-sm-3">
+              <label for="input2">DTC</label>
+              <input type="text" class="form-control" id="dtc" />
+            </div>
+            <div class="form-group col-sm-3">
+              <label for="input3">StopReason</label>
+              <input type="text" class="form-control" id="stop-reason" />
+            </div>
+            <div class="form-group col-sm-3">
+              <label for="input4">Unit Type</label>
+              <div class="form-group">
+                <select class="form-control" id="unit-type">
+                  <option value="">Select Value</option>
+                  <option value="240">Neptune 240kW</option>
+                  <option value="480">Neptune 480kW</option>
+                  <option value="180">Titan 180kW</option>
+                  <option value="60">Athena 60kW</option>
+                  <option value="30">Venus 30kW</option>
                 </select>
-                <button id="deleteButton" class="btn btn-danger">Delete</button>
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                  id="close-modal"
-                >
-                  Close
-                </button>
               </div>
             </div>
           </div>
+          <div class="flex pt-4">
+            <button type="button" class="btn btn-success"id="submit-button">Search</button>
+          </div>
+          
+      </div>
+      <h2>Results</h2>
+      <div id="results" class="star-table">
+        <table class="table">
+          <thead>
+            <tr>
+              <td>ID</td>
+              <td>DTC</td>
+              <td>Stop Reason</td>
+              <td>Date</td>
+              <td>Status</td>
+              <td>Description</td>
+              <td>Firmware Version</td>
+              <td>Severity</td>
+              <td>Applicability</td>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+      <div
+        class="modal fade"
+        id="detailsModal"
+        tabindex="-1"
+        aria-labelledby="detailsModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="detailsModalLabel">Details</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <hr />
+  
+              <!-- Details will be populated here -->
+            </div>
+            <div class="modal-footer">
+              <select style="padding: 0.5rem; border-radius: 10px" id="setStatus">
+                <option value="Not Reviewed">Not Reviewed</option>
+                <option value="Reviewing">Reviewing</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Awaiting Instructions">
+                  Awaiting Instructions
+                </option>
+                <option value="Closed - Not Resolved">
+                  Closed - Not Resolved
+                </option>
+                <option value="Close - Resolved">Close - Resolved</option>
+              </select>
+              <button id="deleteButton" class="btn btn-danger">Delete</button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+                id="close-modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
         </div>
-        <tbody></tbody>
-      </table>
     </div>
   </body>
   <script>
@@ -136,6 +142,46 @@
     const unitDetails = document.getElementById("unit-type");
     const casenum = document.getElementById("casenum");
     const submit = document.getElementById("submit-button");
+
+    function loadTable (result) {
+
+      document.querySelector("table tbody").innerHTML = "";
+
+      for (const row of result) {
+        var tableBody = document.querySelector("#results tbody");
+        var newRow = document.createElement("tr");
+
+        // Order of columns
+        var columnsOrder = [
+          "id",
+          "dtc",
+          "stop_reason",
+          "date",
+          "status",
+          "description",
+          "firmware_version",
+          "severity",
+          "applicability",
+        ];
+
+        // Loop through columns and create a cell for each column
+        columnsOrder.forEach(function (column) {
+          var cell = document.createElement("td");
+          if (column === "status") {
+            cell.dataset.status = row[column]
+          }
+          cell.textContent = row[column];
+          newRow.appendChild(cell);
+        });
+
+        tableBody.appendChild(newRow);
+      }
+
+      // Add event listeners to the newly created buttons
+      document.querySelectorAll("#results tbody tr").forEach((button, index) => {
+        button.addEventListener("click", () => displayDetails(result[index]));
+      });
+    }
 
     submit.onclick = async function () {
       const body = {
@@ -162,46 +208,7 @@
         });
       }
 
-      document.querySelector("table tbody").innerHTML = "";
-
-      for (const row of result) {
-        var tableBody = document.querySelector("#results tbody");
-        var newRow = document.createElement("tr");
-        const detailsButton = document.createElement("td");
-
-        // Order of columns
-        var columnsOrder = [
-          "id",
-          "dtc",
-          "stop_reason",
-          "date",
-          "status",
-          "description",
-          "full_description",
-          "unit_details",
-          "firmware_version",
-          "client_name",
-          "severity",
-          "applicability",
-        ];
-
-        // Loop through columns and create a cell for each column
-        columnsOrder.forEach(function (column) {
-          var cell = document.createElement("td");
-          cell.textContent = row[column];
-          newRow.appendChild(cell);
-        });
-        detailsButton.innerHTML =
-          '<button class="btn btn-success details-button">Details</button>';
-        newRow.appendChild(detailsButton);
-
-        tableBody.appendChild(newRow);
-      }
-
-      // Add event listeners to the newly created buttons
-      document.querySelectorAll(".details-button").forEach((button, index) => {
-        button.addEventListener("click", () => displayDetails(result[index]));
-      });
+      loadTable(result)
     };
 
     // Function to display details vertically when a button is clicked
@@ -232,16 +239,16 @@
         modalBody.appendChild(document.createElement("hr"));
       });
 
-      const setStatus = document.getElementById("setStatus")
+      const setStatus = document.getElementById("setStatus");
 
-      setStatus.value = result.status || "Not Reviewed"
+      setStatus.value = result.status || "Not Reviewed";
       setStatus.onchange = async function (e) {
-        const response = await fetch('/update_status/' + result.id, {
-          method: 'PUT',
+        const response = await fetch("/update_status/" + result.id, {
+          method: "PUT",
           headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json",
           },
-          body: JSON.stringify({ status: e.target.value })
+          body: JSON.stringify({ status: e.target.value }),
         });
 
         if (!response.ok) {
@@ -257,7 +264,7 @@
           text: "Case status updated!",
           icon: "success",
         });
-      }
+      };
 
       // Show the modal
       const modal = new bootstrap.Modal(
@@ -273,7 +280,6 @@
       const deleteButton = document.getElementById("deleteButton");
       if (deleteButton) {
         deleteButton.addEventListener("click", async () => {
-          // Send a delete request to your backend server
           const response = await fetch(
             `/deleteEntry?id=${deleteButton.dataset.id}`,
             {
@@ -281,38 +287,34 @@
             }
           );
 
-          //STEVEN I AM CLOSING THE MODAL AND REFERESHING THE SEARCH
           document.getElementById("close-modal").click();
           submit.click();
-        });
-      } else {
-        console.error("Delete button element not found");
-      }
-      // Handle the response from the server
-      if (response.ok) {
-        // Entry successfully deleted, handle accordingly (e.g., close modal, update UI)
-        console.log("Entry deleted successfully");
-        Swal.fire({
-          title: "Successful!",
-          text: "You have permanently deleted this case!",
-          icon: "success",
-        });
 
-        // Close the modal
-        const modal = new bootstrap.Modal(
-          document.getElementById("exampleModal")
-        );
-        modal.hide();
-      } else {
-        // Error occurred while deleting the entry, handle accordingly
-        console.error("Failed to delete entry");
-        Swal.fire({
-          icon: "error",
-          title: "Failed",
-          text: "Something went wrong!",
+          if (response.ok) {
+            console.log("Entry deleted successfully");
+            Swal.fire({
+              title: "Successful!",
+              text: "You have permanently deleted this case!",
+              icon: "success",
+            });
+
+          } else {
+            console.error("Failed to delete entry");
+            Swal.fire({
+              icon: "error",
+              title: "Failed",
+              text: "Something went wrong!",
+            });
+          }
         });
-        // Display an error message to the user, if needed
       }
+
+      const fullCasesList = `{{cases_json|safe}}`;
+      console.log(fullCasesList.replace(/\n/g, '\\n'))
+      //console.log(JSON.parse(fullCasesList))
+      loadTable(JSON.parse(fullCasesList.replace(/\n/g, '\\n')))
+
+      const existingRows = document.querySelectorAll("#results tbody tr")
     });
   </script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
