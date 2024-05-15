@@ -84,10 +84,6 @@ def explanation():
 def lookup_error():
     return render_template('lookupError.html')
 
-@app.route('/howto')
-def lookup_error():
-    return render_template('howToWebAccess.html')
-
 @app.route('/update_status/<int:case_id>', methods=['PUT'])
 def update_case_status(case_id):
     # Parse request data
