@@ -42,7 +42,7 @@
               />
               <div class="dropdown-content" id="dropdownContent">
                 {% for code in codes %}
-                  <a href="#">{{ code }}</a>
+                <a href="#">{{ code }}</a>
                 {% endfor %}
               </div>
             </div>
@@ -141,6 +141,14 @@
           </div>
         </div>
         <div class="row">
+          <div class="p-1 col-sm-10 input-group">
+            <span class="input-group-text">Upload Files</span>
+            <div class="p-1 form-control col-sm-6">
+              <input type="file" multiple id="files" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
           <!-- <button id="check-button" type="button" class="btn btn-primary">
           Check Required Fields
         </button> -->
@@ -160,6 +168,7 @@
           const clientName = document.getElementById("client-name");
           const severity = document.getElementById("severity");
           const applicability = document.getElementById("applicability");
+          const filesInput = document.getElementById("files");
           const checkButton = document.getElementById("check-button");
           const submitButton = document.getElementById("submit-button");
 
@@ -202,7 +211,7 @@
           options.forEach(function (option) {
             option.onclick = function () {
               document.getElementById("dtc").value = option.textContent;
-            }
+            };
           });
 
           // Function to check if required fields are filled out
@@ -259,35 +268,51 @@
                 applicability: applicability.value,
               };
 
-              console.log(body);
+              const fileData = [],
+                files = filesInput.files;
 
-              fetch("/addCase", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify(body),
-              })
-                .then((response) => response.json())
-                .then((data) => {
-                  // Clear input fields after submission
-                  dtc.value = "";
-                  stopReason.value = "";
-                  date.value = "";
-                  description.value = "";
-                  fullDescription.value = "";
-                  unitDetails.value = "";
-                  firmwareVersion.value = "";
-                  clientName.value = "";
-                  severity.value = "";
-                  applicability.value = "";
-                  Swal.fire({
-                    title: "Good job!",
-                    text: "Submitted",
-                    icon: "success",
+              for (let i = 0; i < files.length; i++) {
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                  fileData.push({
+                    name: files[i].name,
+                    type: files[i].type,
+                    data: event.target.result,
                   });
-                })
-                .catch((error) => console.error("Error:", error));
+
+                  if (fileData.length === files.length) {
+                    body.files = fileData
+                    fetch("/addCase", {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json",
+                      },
+                      body: JSON.stringify(body),
+                    })
+                      .then((response) => response.json())
+                      .then((data) => {
+                        // Clear input fields after submission
+                        dtc.value = "";
+                        stopReason.value = "";
+                        date.value = "";
+                        description.value = "";
+                        fullDescription.value = "";
+                        unitDetails.value = "";
+                        firmwareVersion.value = "";
+                        clientName.value = "";
+                        severity.value = "";
+                        applicability.value = "";
+                        Swal.fire({
+                          title: "Good job!",
+                          text: "Submitted",
+                          icon: "success",
+                        });
+                      })
+                      .catch((error) => console.error("Error:", error));
+                  }
+                };
+                reader.readAsDataURL(files[i]);
+              }
             }
           };
         </script>

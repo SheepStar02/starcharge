@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, render_template, request, json
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import text
+import base64
 from flask_migrate import Migrate
 
 app = Flask(__name__)
@@ -21,6 +22,7 @@ class Case(db.Model):
     client_name = db.Column(db.String(255))
     severity = db.Column(db.String(255))
     applicability = db.Column(db.String(255))
+    files = db.relationship('File', backref='case', lazy=True)
     
     def to_json(self):
         return {
@@ -35,17 +37,33 @@ class Case(db.Model):
             'firmware_version': self.firmware_version,
             'client_name': self.client_name,
             'severity': self.severity,
-            'applicability': self.applicability
+            'applicability': self.applicability,
+            'files': len(self.files) 
         }
+
+class File(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    filename = db.Column(db.String(255))
+    file_type = db.Column(db.String(100))
+    data = db.Column(db.LargeBinary)
+    case_id = db.Column(db.Integer, db.ForeignKey('case.id'), nullable=False)
 
 @app.route('/')
 def home():
     cases = Case.query.filter(Case.status != "Close - Resolved").all()
-    converted = [case.to_json() for case in cases]
-    print(converted)
-    cases_json = json.dumps([case.to_json() for case in cases])
-    print(cases_json)
-    return render_template('index.html', cases=cases, cases_json=jsonify(cases_json).get_json())
+    return render_template('index.html', cases=cases, cases_json=jsonify(json.dumps([case.to_json() for case in cases])).get_json())
+
+@app.route('/case/<int:case_id>/files')
+def get_files(case_id):
+    files = File.query.filter_by(case_id=case_id).all()
+    serialized_files = [{
+        'id': file.id,
+        'filename': file.filename,
+        'file_type': file.file_type,
+        'data': base64.b64encode(file.data).decode('utf-8'),
+    } for file in files]
+
+    return jsonify({'files': serialized_files})
 
 @app.route('/newCase')
 def new_case():
@@ -65,6 +83,10 @@ def explanation():
 @app.route('/lookupError')
 def lookup_error():
     return render_template('lookupError.html')
+
+@app.route('/howto')
+def lookup_error():
+    return render_template('howToWebAccess.html')
 
 @app.route('/update_status/<int:case_id>', methods=['PUT'])
 def update_case_status(case_id):
@@ -101,6 +123,20 @@ def add_case():
             applicability=body['applicability']
         )
         db.session.add(new_case)
+        db.session.flush()
+        
+        files_data = body['files']
+        for file_data in files_data:
+            
+            data = file_data['data']
+            data_parts = data.split(',')
+
+            if len(data_parts) == 2:
+                data = data_parts[1]
+                
+            binary_data = base64.b64decode(data)
+            new_file = File(filename=file_data['name'], file_type=file_data['type'], data=binary_data, case_id=new_case.id)
+            db.session.add(new_file)
         db.session.commit()
         return jsonify({'message': 'Case added successfully'})
     except Exception as e:
@@ -110,10 +146,8 @@ def add_case():
 @app.route('/getCases', methods=['POST'])
 def get_cases():
     body = request.json
-    print(body)
     def get_string():
         conditions = [f"{key}='{value}'" for key, value in body.items() if value and key in Case.__table__.columns]
-        print(conditions)
         if conditions:
             return text(' AND '.join(conditions))
         else:

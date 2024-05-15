@@ -11,13 +11,14 @@
       crossorigin="anonymous"
     />
     <link
-    href= "{{ url_for('static', filename='styles/global.css') }}"
-    rel="stylesheet"
-  />
+      href="{{ url_for('static', filename='styles/global.css') }}"
+      rel="stylesheet"
+    />
     <link
-    href= "{{ url_for('static', filename='styles/index.css') }}"
-    rel="stylesheet"
-  />
+      href="{{ url_for('static', filename='styles/index.css') }}"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
   </head>
 
   <body data-bs-theme="dark">
@@ -34,37 +35,38 @@
     <div class="content-wrap">
       <h2>Filter</h2>
       <div class="filter-wrap">
-          <div class="row">
-            <div class="form-group col-sm-3">
-              <label for="input1">Case #</label>
-              <input type="text" class="form-control" id="casenum" />
-            </div>
-            <div class="form-group col-sm-3">
-              <label for="input2">DTC</label>
-              <input type="text" class="form-control" id="dtc" />
-            </div>
-            <div class="form-group col-sm-3">
-              <label for="input3">StopReason</label>
-              <input type="text" class="form-control" id="stop-reason" />
-            </div>
-            <div class="form-group col-sm-3">
-              <label for="input4">Unit Type</label>
-              <div class="form-group">
-                <select class="form-control" id="unit-type">
-                  <option value="">Select Value</option>
-                  <option value="240">Neptune 240kW</option>
-                  <option value="480">Neptune 480kW</option>
-                  <option value="180">Titan 180kW</option>
-                  <option value="60">Athena 60kW</option>
-                  <option value="30">Venus 30kW</option>
-                </select>
-              </div>
+        <div class="row">
+          <div class="form-group col-sm-3">
+            <label for="input1">Case #</label>
+            <input type="text" class="form-control" id="casenum" />
+          </div>
+          <div class="form-group col-sm-3">
+            <label for="input2">DTC</label>
+            <input type="text" class="form-control" id="dtc" />
+          </div>
+          <div class="form-group col-sm-3">
+            <label for="input3">StopReason</label>
+            <input type="text" class="form-control" id="stop-reason" />
+          </div>
+          <div class="form-group col-sm-3">
+            <label for="input4">Unit Type</label>
+            <div class="form-group">
+              <select class="form-control" id="unit-type">
+                <option value="">Select Value</option>
+                <option value="240">Neptune 240kW</option>
+                <option value="480">Neptune 480kW</option>
+                <option value="180">Titan 180kW</option>
+                <option value="60">Athena 60kW</option>
+                <option value="30">Venus 30kW</option>
+              </select>
             </div>
           </div>
-          <div class="flex pt-4">
-            <button type="button" class="btn btn-success"id="submit-button">Search</button>
-          </div>
-          
+        </div>
+        <div class="flex pt-4">
+          <button type="button" class="btn btn-success" id="submit-button">
+            Search
+          </button>
+        </div>
       </div>
       <h2>Results</h2>
       <div id="results" class="star-table">
@@ -82,8 +84,7 @@
               <td>Applicability</td>
             </tr>
           </thead>
-          <tbody>
-          </tbody>
+          <tbody></tbody>
         </table>
       </div>
       <div
@@ -105,12 +106,22 @@
               ></button>
             </div>
             <div class="modal-body">
-              <hr />
-  
-              <!-- Details will be populated here -->
+              <div class="body-content"></div>
+              <div class="files-content hide">
+                <div class="flex justify-between mb-2">
+                  <h4>Case Files</h4>
+                  <button class="btn btn-secondary" onclick="closeFilesPage()">
+                    Back
+                  </button>
+                </div>
+                <div class="content"></div>
+              </div>
             </div>
             <div class="modal-footer">
-              <select style="padding: 0.5rem; border-radius: 10px" id="setStatus">
+              <select
+                style="padding: 0.5rem; border-radius: 10px"
+                id="setStatus"
+              >
                 <option value="Not Reviewed">Not Reviewed</option>
                 <option value="Reviewing">Reviewing</option>
                 <option value="In Progress">In Progress</option>
@@ -134,6 +145,7 @@
             </div>
           </div>
         </div>
+      </div>
     </div>
   </body>
   <script>
@@ -143,8 +155,61 @@
     const casenum = document.getElementById("casenum");
     const submit = document.getElementById("submit-button");
 
-    function loadTable (result) {
+    const closeFilesPage = () => {
+      document.querySelector(".files-content").classList.add("hide");
+      document.querySelector(".body-content").classList.remove("hide");
+    };
 
+    async function openFilesPage(id) {
+      const files = await fetch(`/case/${id}/files`);
+
+      const result = await files.json();
+
+      const pdfjsLib = window["pdfjs-dist/build/pdf"];
+      pdfjsLib.GlobalWorkerOptions.workerSrc =
+        "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.worker.min.js";
+
+      const filePreview = document.querySelector(".files-content .content");
+      document.querySelector(".files-content").classList.remove("hide");
+      document.querySelector(".body-content").classList.add("hide");
+
+      filePreview.innerHTML = "";
+
+      for (const file of result.files) {
+        if (file.file_type === "application/pdf") {
+          const pdfData = atob(file.data);
+          pdfjsLib.getDocument({ data: pdfData }).promise.then((pdf) => {
+            pdf.getPage(1).then((page) => {
+              const scale = 0.4;
+              const viewport = page.getViewport({ scale: scale });
+              const canvas = document.createElement("canvas");
+              const context = canvas.getContext("2d");
+              canvas.height = viewport.height;
+              canvas.width = viewport.width;
+              const renderContext = {
+                canvasContext: context,
+                viewport: viewport,
+              };
+              page.render(renderContext).promise.then(() => {
+                filePreview.appendChild(canvas);
+              });
+            });
+          });
+        } else if (
+          ["image/jpeg", "image/png", "image/jpg", "image/jpeg"].includes(
+            file.file_type
+          )
+        ) {
+          const img = document.createElement("img");
+          img.style = "max-width:244px;height:fit-content"
+          img.src = `data:${file.file_type};base64,${file.data}`;
+
+          filePreview.append(img)
+        }
+      }
+    }
+
+    function loadTable(result) {
       document.querySelector("table tbody").innerHTML = "";
 
       for (const row of result) {
@@ -168,7 +233,7 @@
         columnsOrder.forEach(function (column) {
           var cell = document.createElement("td");
           if (column === "status") {
-            cell.dataset.status = row[column]
+            cell.dataset.status = row[column];
           }
           cell.textContent = row[column];
           newRow.appendChild(cell);
@@ -178,9 +243,11 @@
       }
 
       // Add event listeners to the newly created buttons
-      document.querySelectorAll("#results tbody tr").forEach((button, index) => {
-        button.addEventListener("click", () => displayDetails(result[index]));
-      });
+      document
+        .querySelectorAll("#results tbody tr")
+        .forEach((button, index) => {
+          button.addEventListener("click", () => displayDetails(result[index]));
+        });
     }
 
     submit.onclick = async function () {
@@ -208,20 +275,21 @@
         });
       }
 
-      loadTable(result)
+      loadTable(result);
     };
 
-    // Function to display details vertically when a button is clicked
     function displayDetails(result) {
-      // Clear previous details if any
       document.querySelectorAll(".details").forEach((element) => {
         element.remove();
       });
 
-      // Populate table rows for details
-      const modalBody = document.querySelector("#detailsModal .modal-body");
-      modalBody.innerHTML = ""; // Clear existing content
+      const modalBody = document.querySelector("#detailsModal .body-content");
+      modalBody.innerHTML = "";
       Object.keys(result).forEach((key) => {
+        if (key === "files") {
+          return;
+        }
+
         const row = document.createElement("div");
         row.classList.add("row");
 
@@ -238,6 +306,28 @@
         modalBody.appendChild(row);
         modalBody.appendChild(document.createElement("hr"));
       });
+
+      if (result.files) {
+        const row = document.createElement("div");
+        row.classList.add("row");
+
+        const labelCol = document.createElement("div");
+        labelCol.classList.add("col");
+        labelCol.textContent = "Files";
+        row.appendChild(labelCol);
+
+        const valueCol = document.createElement("div");
+        valueCol.classList.add("col");
+        valueCol.innerHTML = `<button class="btn btn-success files-btn">View ${result.files} File(s)</button>`;
+        row.appendChild(valueCol);
+
+        modalBody.appendChild(row);
+        modalBody.appendChild(document.createElement("hr"));
+
+        valueCol.querySelector("button").onclick = () => {
+          openFilesPage(result.id);
+        };
+      }
 
       const setStatus = document.getElementById("setStatus");
 
@@ -297,7 +387,6 @@
               text: "You have permanently deleted this case!",
               icon: "success",
             });
-
           } else {
             console.error("Failed to delete entry");
             Swal.fire({
@@ -310,11 +399,9 @@
       }
 
       const fullCasesList = `{{cases_json|safe}}`;
-      console.log(fullCasesList.replace(/\n/g, '\\n'))
-      //console.log(JSON.parse(fullCasesList))
-      loadTable(JSON.parse(fullCasesList.replace(/\n/g, '\\n')))
+      loadTable(JSON.parse(fullCasesList.replace(/\n/g, "\\n")));
 
-      const existingRows = document.querySelectorAll("#results tbody tr")
+      const existingRows = document.querySelectorAll("#results tbody tr");
     });
   </script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

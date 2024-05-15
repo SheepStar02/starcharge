@@ -60,6 +60,10 @@ h2 {
   justify-content: center;
 }
 
+.justify-between {
+  justify-content: space-between;
+}
+
 nav.navbar {
   padding: 20px;
   background-color: rgb(20, 25, 30);
@@ -77,10 +81,18 @@ nav.navbar {
   color: orange
 }
 
+.star-table td[data-status='Awaiting Instructions'] {
+  color: rgb(0, 255, 234)
+}
+
 .star-table td[data-status='Closed - Not Resolved'] {
-  color: red
+  color: rgb(255, 88, 88)
 }
 
 .star-table td[data-status='Closed - Resolved'] {
   color: red
+}
+
+.hide {
+  display: none;
 }

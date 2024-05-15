@@ -12,3 +12,21 @@
   padding-left: 60px;
   padding-right: 60px;
 }
+
+#detailsModal .modal-content {
+  max-height: 90vh;
+}
+
+#detailsModal .modal-body {
+  overflow: auto;
+}
+
+#detailsModal .row {
+ align-items: center; 
+}
+
+.files-content .content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
