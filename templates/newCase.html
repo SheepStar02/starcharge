@@ -280,6 +280,8 @@
                     data: event.target.result,
                   });
 
+                  console.log(fileData)
+
                   if (fileData.length === files.length) {
                     body.files = fileData
                     fetch("/addCase", {

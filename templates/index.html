@@ -110,9 +110,35 @@
               <div class="files-content hide">
                 <div class="flex justify-between mb-2">
                   <h4>Case Files</h4>
-                  <button class="btn btn-secondary" onclick="closeFilesPage()">
-                    Back
-                  </button>
+                  <div class="flex">
+                    <div class="back-container flex gap-10">
+                      <button
+                        class="btn btn-primary"
+                        onclick="openFileUpload()"
+                      >
+                        Upload Files
+                      </button>
+                      <button
+                        class="btn btn-secondary"
+                        onclick="closeFilesPage()"
+                      >
+                        Back
+                      </button>
+                    </div>
+                    <div class="file-upload align-center flex gap-10 hide">
+                      <input type="file" id="support-files" multiple /><button
+                        class="btn btn-success upload-files"
+                      >
+                        Upload
+                      </button>
+                      <button
+                        class="btn btn-danger"
+                        onclick="closeFileUpload()"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </div>
                 </div>
                 <div class="content"></div>
               </div>
@@ -160,6 +186,67 @@
       document.querySelector(".body-content").classList.remove("hide");
     };
 
+    const closeFileUpload = () => {
+      document.querySelector(".file-upload").classList.add("hide");
+      document.querySelector(".back-container").classList.remove("hide");
+    };
+
+    const openFileUpload = () => {
+      document.querySelector(".back-container").classList.add("hide");
+      document.querySelector(".file-upload").classList.remove("hide");
+    };
+
+    const uploadFiles = (id) => {
+      const files = document.getElementById("support-files").files,
+        fileData = [],
+        body = {};
+
+      for (let i = 0; i < files.length; i++) {
+        const reader = new FileReader();
+        reader.onload = function (event) {
+          fileData.push({
+            name: files[i].name,
+            type: files[i].type,
+            data: event.target.result,
+          });
+
+          console.log(fileData);
+
+          if (fileData.length === files.length) {
+            body.files = fileData;
+            fetch(`/case/${id}/files`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(body),
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                Swal.fire({
+                  title: "Good job!",
+                  text: "Submitted",
+                  icon: "success",
+                });
+              })
+              .catch((error) =>
+                Swal.fire({
+                  icon: "error",
+                  title: "Oops...",
+                  text: "Error Uploading Files!",
+                })
+              ).finally(() => {
+                document.getElementById("close-modal").click();
+                submit.click();
+                closeFileUpload();
+                closeFilesPage();
+              })
+          }
+        };
+        reader.readAsDataURL(files[i]);
+      }
+    };
+
     async function openFilesPage(id) {
       const files = await fetch(`/case/${id}/files`);
 
@@ -176,6 +263,12 @@
       filePreview.innerHTML = "";
 
       for (const file of result.files) {
+        const container = document.createElement("div");
+        const download = document.createElement("div");
+        download.innerHTML = "<p>Download</p>";
+        download.classList.add("file-download");
+        container.classList.add("file-preview");
+
         if (file.file_type === "application/pdf") {
           const pdfData = atob(file.data);
           pdfjsLib.getDocument({ data: pdfData }).promise.then((pdf) => {
@@ -191,7 +284,7 @@
                 viewport: viewport,
               };
               page.render(renderContext).promise.then(() => {
-                filePreview.appendChild(canvas);
+                container.appendChild(canvas);
               });
             });
           });
@@ -201,11 +294,55 @@
           )
         ) {
           const img = document.createElement("img");
-          img.style = "max-width:244px;height:fit-content"
+          img.style = "max-width:244px;height:fit-content";
           img.src = `data:${file.file_type};base64,${file.data}`;
 
-          filePreview.append(img)
+          container.append(img);
+        } else {
+          const preview = document.createElement("div");
+          preview.style =
+            "min-height:100px;border-radius:10px;border:1px solid white;width:244px;display:flex;align-items:center;justify-content:center";
+          preview.innerHTML =
+            "<p style='margin:0;text-align:center'>No preview<br>available</p>";
+
+          container.append(preview);
         }
+
+        container.append(download);
+        filePreview.append(container);
+
+        filePreview.onclick = function () {
+          const base64String = file.data;
+          console.log(base64String);
+          // Decode the Base64 string to binary data
+          const byteCharacters = atob(base64String);
+          const byteNumbers = new Array(byteCharacters.length);
+          for (let i = 0; i < byteCharacters.length; i++) {
+            byteNumbers[i] = byteCharacters.charCodeAt(i);
+          }
+          const byteArray = new Uint8Array(byteNumbers);
+
+          // Create a Blob object with the binary data
+          const blob = new Blob([byteArray], {
+            type: "application/octet-stream",
+          });
+
+          // Create a URL for the Blob object
+          const blobUrl = URL.createObjectURL(blob);
+
+          // Create a link element
+          const link = document.createElement("a");
+          link.href = blobUrl;
+          link.download = file.filename; // Set the desired file name
+          document.body.appendChild(link);
+
+          // Programmatically click the link to trigger the download
+          link.click();
+
+          // Clean up by removing the link and revoking the object URL
+          document.body.removeChild(link);
+          URL.revokeObjectURL(blobUrl);
+        };
       }
     }
 
@@ -279,6 +416,9 @@
     };
 
     function displayDetails(result) {
+      document.querySelector(".files-content").classList.add("hide");
+      document.querySelector(".body-content").classList.remove("hide");
+
       document.querySelectorAll(".details").forEach((element) => {
         element.remove();
       });
@@ -307,27 +447,29 @@
         modalBody.appendChild(document.createElement("hr"));
       });
 
-      if (result.files) {
-        const row = document.createElement("div");
-        row.classList.add("row");
+      const row = document.createElement("div");
+      row.classList.add("row");
 
-        const labelCol = document.createElement("div");
-        labelCol.classList.add("col");
-        labelCol.textContent = "Files";
-        row.appendChild(labelCol);
+      const labelCol = document.createElement("div");
+      labelCol.classList.add("col");
+      labelCol.textContent = "Files";
+      row.appendChild(labelCol);
 
-        const valueCol = document.createElement("div");
-        valueCol.classList.add("col");
-        valueCol.innerHTML = `<button class="btn btn-success files-btn">View ${result.files} File(s)</button>`;
-        row.appendChild(valueCol);
+      const valueCol = document.createElement("div");
+      valueCol.classList.add("col");
+      valueCol.innerHTML = `<button class="btn btn-success files-btn">View ${result.files} File(s)</button>`;
+      row.appendChild(valueCol);
 
-        modalBody.appendChild(row);
-        modalBody.appendChild(document.createElement("hr"));
+      modalBody.appendChild(row);
+      modalBody.appendChild(document.createElement("hr"));
 
-        valueCol.querySelector("button").onclick = () => {
-          openFilesPage(result.id);
-        };
-      }
+      valueCol.querySelector("button").onclick = () => {
+        openFilesPage(result.id);
+      };
+
+      document.querySelector(".upload-files").onclick = () => {
+        uploadFiles(result.id);
+      };
 
       const setStatus = document.getElementById("setStatus");
 
@@ -400,8 +542,6 @@
 
       const fullCasesList = `{{cases_json|safe}}`;
       loadTable(JSON.parse(fullCasesList.replace(/\n/g, "\\n")));
-
-      const existingRows = document.querySelectorAll("#results tbody tr");
     });
   </script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

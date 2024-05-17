@@ -53,17 +53,40 @@ def home():
     cases = Case.query.filter(Case.status != "Close - Resolved").all()
     return render_template('index.html', cases=cases, cases_json=jsonify(json.dumps([case.to_json() for case in cases])).get_json())
 
-@app.route('/case/<int:case_id>/files')
-def get_files(case_id):
-    files = File.query.filter_by(case_id=case_id).all()
-    serialized_files = [{
-        'id': file.id,
-        'filename': file.filename,
-        'file_type': file.file_type,
-        'data': base64.b64encode(file.data).decode('utf-8'),
-    } for file in files]
+@app.route('/case/<int:case_id>/files', methods=['GET', 'POST'])
+def files(case_id):
+    
+    if request.method == "GET":
+    
+        files = File.query.filter_by(case_id=case_id).all()
+        serialized_files = [{
+            'id': file.id,
+            'filename': file.filename,
+            'file_type': file.file_type,
+            'data': base64.b64encode(file.data).decode('utf-8'),
+        } for file in files]
 
-    return jsonify({'files': serialized_files})
+        return jsonify({'files': serialized_files})
+    
+    elif request.method == "POST":
+        
+        body = request.json
+        
+        files_data = body['files']
+        for file_data in files_data:
+            
+            data = file_data['data']
+            data_parts = data.split(',')
+
+            if len(data_parts) == 2:
+                data = data_parts[1]
+                
+            binary_data = base64.b64decode(data)
+            new_file = File(filename=file_data['name'], file_type=file_data['type'], data=binary_data, case_id=case_id)
+            db.session.add(new_file)
+        db.session.commit()
+        
+        return jsonify({ 'files': files_data })
 
 @app.route('/newCase')
 def new_case():
@@ -149,13 +172,9 @@ def get_cases():
         else:
             return text('1=1')
     try:
-        cases = Case.query.filter(get_string()).all()
+        cases = Case.query.filter(get_string()).all() 
 
-        cases_dict = [case.__dict__ for case in cases]
-        for case in cases_dict:
-            case.pop('_sa_instance_state', None) 
-
-        return json.jsonify(cases_dict)
+        return json.jsonify([case.to_json() for case in cases])
     except Exception as e:
         print(f"Error executing database query: {e}")
         return jsonify({'error': 'Internal Server Error'}), 500
@@ -166,6 +185,10 @@ def delete_entry():
 
     try:
         case_to_delete = Case.query.get(id)
+        
+        for file in case_to_delete.files:
+            db.session.delete(file)
+        
         db.session.delete(case_to_delete)
         db.session.commit()
         return jsonify({'message': 'Case deleted successfully'})
