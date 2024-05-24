@@ -9,6 +9,20 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://steedelivery:GuessThis1!@d
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
+class Solution(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    dtc = db.Column(db.String(255))
+    description = db.Column(db.String(255))
+    full_description = db.Column(db.String(255))
+    
+    def to_json(self):
+        return {
+            'id': self.id,
+            'dtc': self.dtc,
+            'description': self.description,
+            'full_description': self.full_description,
+        }
+
 class Case(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     dtc = db.Column(db.String(255))
@@ -124,6 +138,24 @@ def update_case_status(case_id):
 
     return jsonify({'message': 'Status updated successfully'}), 200
 
+@app.route("/solutions", methods=['POST'])
+def solutions():
+    try:
+        
+        body = request.json
+        
+        new_solution = Solution(
+            dtc=body['dtc'],
+            description=body['description'],
+            full_description=body['fullDescription']
+        )
+        
+        db.session.add(new_solution)
+        db.session.commit()
+        return jsonify({'message': 'Case added successfully'})
+    except Exception as e:
+        print(f"Error executing database query: {e}")
+        return jsonify({'error': 'Internal Server Error'}), 500
 
 @app.route('/addCase', methods=['POST'])
 def add_case():
@@ -198,8 +230,20 @@ def delete_entry():
 
 @app.route('/output_dtc')
 def output_utc():
+    
+    json_data = {}
+      
     with open('OUTPUT_DTC.json', 'r') as file:
-        json_data = json.load(file)
+        json_data['output'] = json.load(file)
+        
+    try: 
+        dtc = request.args.get('dtc')
+        cases = Solution.query.filter_by(dtc=dtc)
+        json_data['solutions'] = [case.to_json() for case in cases]
+    except Exception as e:
+        print(f"Error executing database query: {e}")
+        return jsonify({'error': 'Internal Server Error'}), 500
+
     return jsonify(json_data)
 
 @app.route('/output_stopreason')
